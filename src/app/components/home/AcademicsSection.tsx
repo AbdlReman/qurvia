@@ -34,21 +34,23 @@ const AcademicsSection: React.FC = () => {
         <div className="section-title">
           <h2>Academics</h2>
           <div className="section-icon">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 10 Q15 5, 25 10 Q35 15, 45 10 Q55 5, 60 10" stroke="#10b981" strokeWidth="3" strokeLinecap="round" fill="none"/>
             </svg>
           </div>
         </div>
         
-        <div className="grid grid-cols-4 gap-8">
+        <div className="academics-grid">
           {academics.map((item) => (
-            <div key={item.id} className="card">
-              <div className="card-content text-center">
-                <div className="mb-4">
-                  <img src={item.image} alt={item.title} className="w-16 h-16 mx-auto" />
+            <div key={item.id} className="academic-card">
+              <div className="academic-card-image">
+                <img src={item.image} alt={item.title} className="w-full h-64 object-cover" />
+                <div className="academic-card-overlay">
+                  <div className="academic-card-content">
+                    <h3 className="academic-card-title">{item.title}</h3>
+                    <a href={item.link} className="academic-card-link">Learn More →</a>
+                  </div>
                 </div>
-                <h3 className="card-title">{item.title}</h3>
-                <a href={item.link} className="card-link">Learn More →</a>
               </div>
             </div>
           ))}
