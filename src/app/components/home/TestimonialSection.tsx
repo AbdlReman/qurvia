@@ -28,10 +28,10 @@ const TestimonialSection: React.FC = () => {
                  </div>
                  
                  <div className="md:col-span-2">
-                   <p className="text-gray-600 mb-4 text-lg">
-                     "Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, 
-                     convallis at tellus. The learning experience here has been absolutely transformative."
-                   </p>
+                                       <p className="text-gray-600 mb-4 text-lg">
+                      &ldquo;Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, 
+                      convallis at tellus. The learning experience here has been absolutely transformative.&rdquo;
+                    </p>
                    
                    <div className="flex items-center gap-2 mb-4">
                      {[1, 2, 3, 4, 5].map((star) => (
@@ -44,10 +44,10 @@ const TestimonialSection: React.FC = () => {
                  </div>
                </div>
               
-              {/* Large quotation mark */}
-              <div className="absolute top-4 right-4 text-gray-200 text-6xl">
-                "
-              </div>
+                             {/* Large quotation mark */}
+               <div className="absolute top-4 right-4 text-gray-200 text-6xl">
+                 &ldquo;
+               </div>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
           <div className="hero-left">
             <span className="hero-tag">Great Quality Social life</span>
             <h1 className="hero-title">Discover the world of<br /> possible university.</h1>
-            <a href="#" className="hero-btn">Let's Talk</a>
+            <a href="#" className="hero-btn">Let&apos;s Talk</a>
           </div>
           <div className="video-section">
             <div className="play-button">

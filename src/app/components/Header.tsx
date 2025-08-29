@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,9 +46,9 @@ const Header: React.FC = () => {
       <div className="navbar">
         <div className="container">
           <div className="nav-content">
-            <a href="/" className="logo">
-              <span className="text-red-600">■</span> Echooling.
-            </a>
+                         <Link href="/" className="logo">
+               <span className="text-red-600">■</span> Echooling.
+             </Link>
             
             <ul className={`nav-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
               <li><a href="#">Home</a></li>
