@@ -5,9 +5,7 @@ import WelcomeSection from './components/home/WelcomeSection';
 import CampusLifeSection from './components/home/CampusLifeSection';
 import PopularCoursesSection from './components/home/PopularCoursesSection';
 import StatsSection from './components/home/StatsSection';
-import EventsSection from './components/home/EventsSection';
 import TestimonialSection from './components/home/TestimonialSection';
-import BlogSection from './components/home/BlogSection';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -21,9 +19,7 @@ export default function Home() {
         <CampusLifeSection />
         <PopularCoursesSection />
         <StatsSection />
-        <EventsSection />
         <TestimonialSection />
-        <BlogSection />
       </main>
       <Footer />
     </>

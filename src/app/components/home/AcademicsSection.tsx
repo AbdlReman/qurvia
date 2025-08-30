@@ -4,26 +4,26 @@ const AcademicsSection: React.FC = () => {
   const academics = [
     {
       id: 1,
-      title: "Let's Talk Science",
-      image: "/images/service/1.png",
+      title: "Quran Memorization",
+      image: "/images/resources/gallery_1_1.jpg",
       link: "#"
     },
     {
       id: 2,
-      title: "Innovative Courses",
-      image: "/images/service/2.png",
+      title: "Tajweed & Qira'ah",
+      image: "/images/resources/gallery_1_2.jpg",
       link: "#"
     },
     {
       id: 3,
-      title: "Cloud Storage",
-      image: "/images/service/3.png",
+      title: "Islamic Studies",
+      image: "/images/resources/gallery_1_3.jpg",
       link: "#"
     },
     {
       id: 4,
-      title: "Online Education",
-      image: "/images/service/4.png",
+      title: "Online Learning",
+      image: "/images/resources/gallery_1_4.jpg",
       link: "#"
     }
   ];
@@ -32,7 +32,7 @@ const AcademicsSection: React.FC = () => {
     <section className="py-16">
       <div className="container">
         <div className="section-title">
-          <h2>Academics</h2>
+          <h2>Islamic Education Programs</h2>
           <div className="section-icon">
             <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 10 Q15 5, 25 10 Q35 15, 45 10 Q55 5, 60 10" stroke="#10b981" strokeWidth="3" strokeLinecap="round" fill="none"/>

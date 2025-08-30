@@ -6,9 +6,9 @@ const HeroSection: React.FC = () => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-left">
-            <span className="hero-tag">Great Quality Social life</span>
-            <h1 className="hero-title">Discover the world of<br /> possible university.</h1>
-            <a href="#" className="hero-btn">Let&apos;s Talk</a>
+            <span className="hero-tag">Excellence in Islamic Education</span>
+            <h1 className="hero-title">Discover the Beauty of<br />Quran Learning & Islamic Studies</h1>
+            <a href="#" className="hero-btn">Start Your Journey</a>
           </div>
           <div className="video-section">
             <div className="play-button">
@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
                 <path d="M8 5v14l11-7z" fill="#1e3a8a"/>
               </svg>
             </div>
-            <p>Watch Video Intro</p>
+            <p>Watch Academy Tour</p>
           </div>
         </div>
       </div>

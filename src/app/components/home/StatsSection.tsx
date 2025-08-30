@@ -4,23 +4,23 @@ const StatsSection: React.FC = () => {
   const stats = [
     {
       id: 1,
-      number: "1305",
-      label: "ENROLLED LEARNERS"
+      number: "850",
+      label: "QURAN MEMORIZERS"
     },
     {
       id: 2,
-      number: "1528",
-      label: "FOREIGN STUDENTS"
+      number: "1200",
+      label: "ACTIVE STUDENTS"
     },
     {
       id: 3,
-      number: "247",
-      label: "SUCCESSFULLY TRAINED"
+      number: "45",
+      label: "CERTIFIED TEACHERS"
     },
     {
       id: 4,
-      number: "922",
-      label: "SCHEDULE LESSONS"
+      number: "15",
+      label: "YEARS OF EXCELLENCE"
     }
   ];
 

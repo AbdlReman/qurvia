@@ -4,35 +4,35 @@ const PopularCoursesSection: React.FC = () => {
   const courses = [
     {
       id: 1,
-      image: "/images/course/1.png",
-      tags: ["UI Design", "4 Lessons"],
-      title: "Python for Data Science & Machine Learning",
-      students: "27 Students",
-      price: "$72.00"
+      image: "/images/resources/service_2_1.jpg",
+      tags: ["Quran", "30 Juz"],
+      title: "Complete Quran Memorization (Hifz)",
+      students: "45 Students",
+      price: "$150.00"
     },
     {
       id: 2,
-      image: "/images/course/2.png",
-      tags: ["Web Development", "6 Lessons"],
-      title: "The complete web develop Ment bootcamp",
-      students: "35 Students",
-      price: "$68.00"
+      image: "/images/resources/service_2_2.jpg",
+      tags: ["Tajweed", "12 Lessons"],
+      title: "Advanced Tajweed & Qira'ah",
+      students: "38 Students",
+      price: "$120.00"
     },
     {
       id: 3,
-      image: "/images/course/3.png",
-      tags: ["Music", "8 Lessons"],
-      title: "Basic conservatories is the Entirely free online",
-      students: "42 Students",
-      price: "$72.00"
+      image: "/images/resources/service_2_3.jpg",
+      tags: ["Islamic", "16 Lessons"],
+      title: "Islamic Studies & Fiqh",
+      students: "52 Students",
+      price: "$100.00"
     },
     {
       id: 4,
-      image: "/images/course/4.png",
-      tags: ["Business", "5 Lessons"],
-      title: "Strategy law and Organization foundation",
-      students: "31 Students",
-      price: "$68.00"
+      image: "/images/resources/feature-img2.jpg",
+      tags: ["Arabic", "20 Lessons"],
+      title: "Arabic Language & Grammar",
+      students: "41 Students",
+      price: "$90.00"
     }
   ];
 
@@ -40,7 +40,7 @@ const PopularCoursesSection: React.FC = () => {
     <section className="py-20">
       <div className="container">
         <div className="section-title">
-          <h2>Popular Courses</h2>
+          <h2>Popular Islamic Courses</h2>
           <div className="section-icon">
             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
