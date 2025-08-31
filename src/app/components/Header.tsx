@@ -59,16 +59,11 @@ const Header: React.FC = () => {
               <li><Link href="/contact">Contact</Link></li>
             </ul>
             
-            {/* Desktop Search and Buttons */}
-            <div className="search-section desktop-search">
-              <input 
-                type="text" 
-                placeholder="Search Courses" 
-                className="search-input"
-              />
-              <a href="#" className="btn btn-outline">Login</a>
-              <a href="#" className="btn btn-primary">Join Now</a>
-            </div>
+                         {/* Desktop Buttons */}
+             <div className="search-section desktop-search">
+               <a href="#" className="btn btn-outline">Login</a>
+               <a href="#" className="btn btn-primary">Join Now</a>
+             </div>
             
             {/* Mobile Menu Toggle - Always visible on mobile */}
             <button 
@@ -91,17 +86,12 @@ const Header: React.FC = () => {
               <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
             </ul>
             
-            <div className="mobile-search-section">
-              <input 
-                type="text" 
-                placeholder="Search Courses" 
-                className="mobile-search-input"
-              />
-              <div className="mobile-buttons">
-                <a href="#" className="btn btn-outline mobile-btn">Login</a>
-                <a href="#" className="btn btn-primary mobile-btn">Join Now</a>
-              </div>
-            </div>
+                         <div className="mobile-search-section">
+               <div className="mobile-buttons">
+                 <a href="#" className="btn btn-outline mobile-btn">Login</a>
+                 <a href="#" className="btn btn-primary mobile-btn">Join Now</a>
+               </div>
+             </div>
           </div>
         </div>
       </div>
