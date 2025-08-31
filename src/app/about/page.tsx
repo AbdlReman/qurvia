@@ -3,27 +3,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function AboutPage() {
-  const features = [
-    {
-      icon: "📚",
-      title: "Accredited Campus",
-      description: "Our academy is fully accredited and recognized for excellence in Islamic education and Quranic studies worldwide.",
-      color: "blue"
-    },
-    {
-      icon: "🎓",
-      title: "Best Quality Graduate",
-      description: "We produce graduates who are well-versed in Islamic knowledge and equipped with strong moral character and leadership skills.",
-      color: "red"
-    },
-    {
-      icon: "⭐",
-      title: "Inspiring Student Life",
-      description: "Creating an environment that inspires spiritual growth, academic excellence, and personal development in every student.",
-      color: "blue"
-    }
-  ];
-
   const instructors = [
     {
       name: "Sheikh Ahmed Hassan",
@@ -54,33 +33,6 @@ export default function AboutPage() {
       name: "Ustadha Khadija Ahmed",
       position: "Education Assistant",
       image: "/images/resources/team_1_2.jpg"
-    }
-  ];
-
-  const testimonials = [
-    {
-      rating: 5,
-      reviews: 14,
-      feedback: "Qurvia Academy has transformed my understanding of the Quran. The teachers are exceptional and the learning environment is truly inspiring. I've never felt more connected to my faith.",
-      student: "Ahmed Hassan",
-      title: "Student",
-      image: "/images/resources/team_1_1.jpg"
-    },
-    {
-      rating: 5,
-      reviews: 12,
-      feedback: "The quality of education here is outstanding. The instructors are knowledgeable and patient, making complex Islamic concepts easy to understand. Highly recommended!",
-      student: "Fatima Ali",
-      title: "Student",
-      image: "/images/resources/team_1_2.jpg"
-    },
-    {
-      rating: 5,
-      reviews: 18,
-      feedback: "My children have grown so much spiritually since joining Qurvia Academy. The curriculum is comprehensive and the teachers truly care about each student's development.",
-      student: "Omar Khalil",
-      title: "Parent",
-      image: "/images/resources/team_1_3.jpg"
     }
   ];
 

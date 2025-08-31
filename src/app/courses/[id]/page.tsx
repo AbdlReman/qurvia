@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import coursesData from '../../data/courses.json';
@@ -18,9 +19,9 @@ export default function CourseDetailsPage({ params }: { params: { id: string } }
           <div className="container text-center">
             <h1 className="text-3xl font-bold text-gray-800 mb-4">Course Not Found</h1>
             <p className="text-gray-600">The course you're looking for doesn't exist.</p>
-            <a href="/courses" className="text-emerald-600 hover:text-emerald-700 mt-4 inline-block">
+            <Link href="/courses" className="text-emerald-600 hover:text-emerald-700 mt-4 inline-block">
               ← Back to Courses
-            </a>
+            </Link>
           </div>
         </main>
         <Footer />
