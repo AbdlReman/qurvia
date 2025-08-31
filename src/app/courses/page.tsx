@@ -6,63 +6,107 @@ export default function CoursesPage() {
   const courses = [
     {
       id: 1,
+      title: "Quran Memorization (Hifz)",
+      description: "Complete Quran memorization program with proper Tajweed and understanding",
       image: "/images/resources/service_2_1.jpg",
-      category: "Quran Memorization",
-      title: "Complete Quran Memorization (Hifz)",
       duration: "2-3 Years",
-      students: "45 Students",
-      price: "$150.00",
-      description: "Complete memorization of the Holy Quran with proper Tajweed and understanding of meanings."
+      level: "Beginner to Advanced",
+      price: "$150/month",
+      features: ["Complete Quran Memorization", "Tajweed Rules", "Memorization Techniques", "Regular Assessments"]
     },
     {
       id: 2,
+      title: "Tajweed & Qira'ah",
+      description: "Master the art of Quran recitation with proper pronunciation and rules",
       image: "/images/resources/service_2_2.jpg",
-      category: "Tajweed",
-      title: "Advanced Tajweed & Qira'ah",
-      duration: "6 Months",
-      students: "38 Students",
-      price: "$120.00",
-      description: "Master the rules of Tajweed and learn different Qira'ah styles with expert guidance."
+      duration: "6-12 Months",
+      level: "Intermediate",
+      price: "$120/month",
+      features: ["Tajweed Rules", "Qira'ah Styles", "Pronunciation Practice", "Audio Training"]
     },
     {
       id: 3,
+      title: "Islamic Studies",
+      description: "Comprehensive Islamic education covering Fiqh, Hadith, and Islamic history",
       image: "/images/resources/service_2_3.jpg",
-      category: "Islamic Studies",
-      title: "Islamic Studies & Fiqh",
-      duration: "1 Year",
-      students: "52 Students",
-      price: "$100.00",
-      description: "Comprehensive study of Islamic jurisprudence, Hadith, and Islamic history."
+      duration: "1-2 Years",
+      level: "All Levels",
+      price: "$100/month",
+      features: ["Islamic Jurisprudence", "Hadith Studies", "Islamic History", "Contemporary Issues"]
     },
     {
       id: 4,
+      title: "Arabic Language",
+      description: "Learn Classical Arabic for better understanding of Islamic texts",
       image: "/images/resources/feature-img2.jpg",
-      category: "Arabic Language",
-      title: "Arabic Language & Grammar",
-      duration: "8 Months",
-      students: "41 Students",
-      price: "$90.00",
-      description: "Learn classical Arabic grammar, vocabulary, and conversation skills."
+      duration: "1 Year",
+      level: "Beginner to Intermediate",
+      price: "$80/month",
+      features: ["Classical Arabic", "Grammar & Syntax", "Text Analysis", "Writing Skills"]
     },
     {
       id: 5,
+      title: "Islamic Ethics & Morals",
+      description: "Study Islamic ethics, character building, and moral values",
       image: "/images/resources/gallery_1_1.jpg",
-      category: "Quran Recitation",
-      title: "Quran Recitation for Beginners",
-      duration: "4 Months",
-      students: "35 Students",
-      price: "$80.00",
-      description: "Perfect for beginners to learn proper Quran recitation and basic Tajweed rules."
+      duration: "6 Months",
+      level: "All Levels",
+      price: "$60/month",
+      features: ["Islamic Ethics", "Character Building", "Moral Values", "Practical Application"]
     },
     {
       id: 6,
+      title: "Islamic Finance",
+      description: "Learn about Islamic banking, finance, and economic principles",
       image: "/images/resources/gallery_1_2.jpg",
-      category: "Islamic History",
-      title: "Islamic History & Civilization",
-      duration: "6 Months",
-      students: "28 Students",
-      price: "$75.00",
-      description: "Explore the rich history of Islamic civilization and its contributions to humanity."
+      duration: "8 Months",
+      level: "Intermediate to Advanced",
+      price: "$90/month",
+      features: ["Islamic Banking", "Financial Principles", "Economic Ethics", "Modern Applications"]
+    }
+  ];
+
+  const categories = [
+    {
+      icon: "📖",
+      title: "Quran Studies",
+      count: "3 Courses",
+      description: "Memorization, recitation, and understanding"
+    },
+    {
+      icon: "🕌",
+      title: "Islamic Studies",
+      count: "2 Courses",
+      description: "Jurisprudence, history, and ethics"
+    },
+    {
+      icon: "🔤",
+      title: "Arabic Language",
+      count: "1 Course",
+      description: "Classical Arabic and grammar"
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: "👨‍🏫",
+      title: "Expert Teachers",
+      description: "Learn from certified Islamic scholars and Quran teachers"
+    },
+    {
+      icon: "📱",
+      title: "Flexible Learning",
+      description: "Online and offline classes available for your convenience"
+    },
+    {
+      icon: "📚",
+      title: "Comprehensive Curriculum",
+      description: "Well-structured programs covering all aspects of Islamic education"
+    },
+    {
+      icon: "🎯",
+      title: "Personalized Attention",
+      description: "Small class sizes ensuring individual attention and progress"
     }
   ];
 
@@ -71,96 +115,118 @@ export default function CoursesPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-r from-emerald-50 to-green-50">
+        <section className="py-20 bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100">
           <div className="container">
             <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
                 Our Islamic Courses
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover our comprehensive range of Quranic and Islamic education programs
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Discover comprehensive Islamic education programs designed to nurture your spiritual growth
               </p>
+              <div className="mt-8 flex justify-center">
+                <div className="w-24 h-1 bg-emerald-600 rounded-full"></div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Course Categories */}
-        <section className="py-16">
+        <section className="py-20 bg-white">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Course Categories</h2>
-              <p className="text-gray-600">Choose from our specialized Islamic education programs</p>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Course Categories</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                Explore our diverse range of Islamic education programs
+              </p>
+              <div className="mt-6 flex justify-center">
+                <div className="w-16 h-1 bg-emerald-600 rounded-full"></div>
+              </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border-2 border-emerald-200">
-                <div className="text-4xl mb-4">📖</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Quran Memorization</h3>
-                <p className="text-sm text-gray-600">Complete Hifz programs</p>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border-2 border-emerald-200">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Tajweed</h3>
-                <p className="text-sm text-gray-600">Perfect recitation skills</p>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border-2 border-emerald-200">
-                <div className="text-4xl mb-4">🕌</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Islamic Studies</h3>
-                <p className="text-sm text-gray-600">Fiqh and Islamic history</p>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border-2 border-emerald-200">
-                <div className="text-4xl mb-4">📚</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Arabic Language</h3>
-                <p className="text-sm text-gray-600">Grammar and conversation</p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {categories.map((category, index) => (
+                <div key={index} className="group">
+                  <div className="text-center p-8 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">{category.title}</h3>
+                    <p className="text-emerald-600 font-semibold mb-3">{category.count}</p>
+                    <p className="text-gray-600 leading-relaxed">
+                      {category.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* All Courses */}
+        {/* All Available Courses */}
         <section className="py-20 bg-gray-50">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">All Available Courses</h2>
-              <p className="text-gray-600">Comprehensive Islamic education for all levels</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">All Available Courses</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                Choose from our comprehensive selection of Islamic education programs
+              </p>
+              <div className="mt-6 flex justify-center">
+                <div className="w-16 h-1 bg-emerald-600 rounded-full"></div>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {courses.map((course) => (
-                <div key={course.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <img 
-                    src={course.image} 
-                    alt={course.title} 
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">
-                        {course.category}
-                      </span>
-                      <span className="text-sm text-gray-500">{course.duration}</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-semibold text-gray-800 mb-3">{course.title}</h3>
-                    <p className="text-gray-600 mb-4">{course.description}</p>
-                    
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                        <span className="text-sm">{course.students}</span>
+                <div key={course.id} className="group">
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3">
+                    {/* Course Image */}
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={course.image} 
+                        alt={course.title} 
+                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        {course.level}
                       </div>
-                      <span className="font-bold text-emerald-600">{course.price}</span>
                     </div>
                     
-                    <button className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 transition-colors">
-                      Enroll Now
-                    </button>
+                    {/* Course Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">{course.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        {course.description}
+                      </p>
+                      
+                      {/* Course Details */}
+                      <div className="flex justify-between items-center mb-4">
+                        <div className="text-sm text-gray-500">
+                          <span className="font-medium">Duration:</span> {course.duration}
+                        </div>
+                        <div className="text-lg font-bold text-emerald-600">
+                          {course.price}
+                        </div>
+                      </div>
+                      
+                      {/* Course Features */}
+                      <div className="mb-6">
+                        <h4 className="text-sm font-semibold text-gray-700 mb-2">What you'll learn:</h4>
+                        <ul className="space-y-1">
+                          {course.features.map((feature, index) => (
+                            <li key={index} className="text-xs text-gray-600 flex items-center">
+                              <span className="text-emerald-600 mr-2">✓</span>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      {/* Enroll Button */}
+                      <button className="w-full bg-emerald-600 text-white py-3 px-4 rounded-lg hover:bg-emerald-700 transition-colors text-sm font-medium group-hover:shadow-lg">
+                        Enroll Now
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -169,39 +235,52 @@ export default function CoursesPage() {
         </section>
 
         {/* Why Choose Our Courses */}
-        <section className="py-20">
+        <section className="py-20 bg-white">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Why Choose Our Courses?</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Experience the best in Islamic education with our proven methodology
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose Our Courses</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                Experience the best in Islamic education with our comprehensive programs
               </p>
+              <div className="mt-6 flex justify-center">
+                <div className="w-16 h-1 bg-emerald-600 rounded-full"></div>
+              </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl mb-4">👨‍🏫</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Expert Teachers</h3>
-                <p className="text-gray-600">
-                  Learn from certified Islamic scholars and qualified Quran teachers
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-4xl mb-4">💻</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Online & Offline</h3>
-                <p className="text-gray-600">
-                  Flexible learning options with both online and in-person classes
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-4xl mb-4">📊</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Progress Tracking</h3>
-                <p className="text-gray-600">
-                  Regular assessments and progress reports to monitor your learning
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="group">
+                  <div className="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {benefit.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-800 mb-3">{benefit.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
+          <div className="container text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Begin Your Islamic Education?
+            </h2>
+            <p className="text-emerald-100 mb-8 max-w-2xl mx-auto text-lg">
+              Join our community of learners and start your journey towards Islamic knowledge and spiritual growth
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-white text-emerald-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                Browse All Courses
+              </button>
+              <button className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors">
+                Contact Advisor
+              </button>
             </div>
           </div>
         </section>

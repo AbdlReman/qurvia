@@ -17,8 +17,7 @@ export default function Navbar() {
 					<Link href="/" className="hover:text-emerald-700">Home</Link>
 					<Link href="/about" className="hover:text-emerald-700">About</Link>
 					<Link href="/courses" className="hover:text-emerald-700">Courses</Link>
-					<Link href="/services" className="hover:text-emerald-700">Services</Link>
-					<Link href="/contact" className="hover:text-emerald-700">Contact Us</Link>
+					<Link href="/contact" className="hover:text-emerald-700">Contact</Link>
 				</nav>
 				<div className="hidden md:flex items-center gap-3">
 					<Link href="#" className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 hover:bg-emerald-50">Login</Link>
@@ -34,8 +33,7 @@ export default function Navbar() {
 						<Link href="/" onClick={() => setOpen(false)}>Home</Link>
 						<Link href="/about" onClick={() => setOpen(false)}>About</Link>
 						<Link href="/courses" onClick={() => setOpen(false)}>Courses</Link>
-						<Link href="/services" onClick={() => setOpen(false)}>Services</Link>
-						<Link href="/contact" onClick={() => setOpen(false)}>Contact Us</Link>
+						<Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
 						<div className="flex gap-3 pt-2">
 							<Link href="#" className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700">Login</Link>
 							<Link href="#" className="text-[14px] px-4 py-2 rounded-md bg-emerald-600 text-white">Join Now</Link>
