@@ -46,18 +46,21 @@ const Header: React.FC = () => {
       <div className="navbar">
         <div className="container">
           <div className="nav-content">
+            {/* Logo - Always visible */}
             <Link href="/" className="logo">
               <span className="text-red-600">■</span> Qurvia Academy.
             </Link>
             
-            <ul className={`nav-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+            {/* Desktop Navigation Menu */}
+            <ul className="nav-menu desktop-menu">
               <li><Link href="/">Home</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/courses">Courses</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
             
-            <div className={`search-section ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+            {/* Desktop Search and Buttons */}
+            <div className="search-section desktop-search">
               <input 
                 type="text" 
                 placeholder="Search Courses" 
@@ -67,7 +70,7 @@ const Header: React.FC = () => {
               <a href="#" className="btn btn-primary">Join Now</a>
             </div>
             
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle - Always visible on mobile */}
             <button 
               className="mobile-menu-toggle"
               onClick={toggleMenu}
@@ -77,6 +80,28 @@ const Header: React.FC = () => {
               <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
               <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
             </button>
+          </div>
+          
+          {/* Mobile Menu Dropdown */}
+          <div className={`mobile-menu-dropdown ${isMenuOpen ? 'open' : ''}`}>
+            <ul className="mobile-nav-menu">
+              <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+              <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
+              <li><Link href="/courses" onClick={() => setIsMenuOpen(false)}>Courses</Link></li>
+              <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+            </ul>
+            
+            <div className="mobile-search-section">
+              <input 
+                type="text" 
+                placeholder="Search Courses" 
+                className="mobile-search-input"
+              />
+              <div className="mobile-buttons">
+                <a href="#" className="btn btn-outline mobile-btn">Login</a>
+                <a href="#" className="btn btn-primary mobile-btn">Join Now</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
