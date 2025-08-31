@@ -1,70 +1,10 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import coursesData from '../data/courses.json';
 
 export default function CoursesPage() {
-  const courses = [
-    {
-      id: 1,
-      title: "Quran Memorization (Hifz)",
-      description: "Complete Quran memorization program with proper Tajweed and understanding",
-      image: "/images/resources/service_2_1.jpg",
-      duration: "2-3 Years",
-      level: "Beginner to Advanced",
-      price: "$150/month",
-      features: ["Complete Quran Memorization", "Tajweed Rules", "Memorization Techniques", "Regular Assessments"]
-    },
-    {
-      id: 2,
-      title: "Tajweed & Qira'ah",
-      description: "Master the art of Quran recitation with proper pronunciation and rules",
-      image: "/images/resources/service_2_2.jpg",
-      duration: "6-12 Months",
-      level: "Intermediate",
-      price: "$120/month",
-      features: ["Tajweed Rules", "Qira'ah Styles", "Pronunciation Practice", "Audio Training"]
-    },
-    {
-      id: 3,
-      title: "Islamic Studies",
-      description: "Comprehensive Islamic education covering Fiqh, Hadith, and Islamic history",
-      image: "/images/resources/service_2_3.jpg",
-      duration: "1-2 Years",
-      level: "All Levels",
-      price: "$100/month",
-      features: ["Islamic Jurisprudence", "Hadith Studies", "Islamic History", "Contemporary Issues"]
-    },
-    {
-      id: 4,
-      title: "Arabic Language",
-      description: "Learn Classical Arabic for better understanding of Islamic texts",
-      image: "/images/resources/feature-img2.jpg",
-      duration: "1 Year",
-      level: "Beginner to Intermediate",
-      price: "$80/month",
-      features: ["Classical Arabic", "Grammar & Syntax", "Text Analysis", "Writing Skills"]
-    },
-    {
-      id: 5,
-      title: "Islamic Ethics & Morals",
-      description: "Study Islamic ethics, character building, and moral values",
-      image: "/images/resources/gallery_1_1.jpg",
-      duration: "6 Months",
-      level: "All Levels",
-      price: "$60/month",
-      features: ["Islamic Ethics", "Character Building", "Moral Values", "Practical Application"]
-    },
-    {
-      id: 6,
-      title: "Islamic Finance",
-      description: "Learn about Islamic banking, finance, and economic principles",
-      image: "/images/resources/gallery_1_2.jpg",
-      duration: "8 Months",
-      level: "Intermediate to Advanced",
-      price: "$90/month",
-      features: ["Islamic Banking", "Financial Principles", "Economic Ethics", "Modern Applications"]
-    }
-  ];
+  const courses = coursesData.courses;
 
   const categories = [
     {
@@ -166,70 +106,54 @@ export default function CoursesPage() {
         {/* All Available Courses */}
         <section className="py-20 bg-gray-50">
           <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">All Available Courses</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                Choose from our comprehensive selection of Islamic education programs
-              </p>
-              <div className="mt-6 flex justify-center">
-                <div className="w-16 h-1 bg-emerald-600 rounded-full"></div>
+            <div className="section-title">
+              <h2>All Available Courses</h2>
+              <div className="section-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="courses-grid">
               {courses.map((course) => (
-                <div key={course.id} className="group">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3">
-                    {/* Course Image */}
-                    <div className="relative overflow-hidden">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                <div key={course.id} className="card">
+                  <img src={course.image} alt={course.title} className="card-image" />
+                  <div className="card-content">
+                    <div className="flex gap-2 mb-3">
+                      <span className="text-xs bg-emerald-100 text-emerald-600 px-2 py-1 rounded font-medium">
                         {course.level}
-                      </div>
+                      </span>
+                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                        {course.duration}
+                      </span>
                     </div>
                     
-                    {/* Course Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">{course.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                        {course.description}
-                      </p>
-                      
-                      {/* Course Details */}
-                      <div className="flex justify-between items-center mb-4">
-                        <div className="text-sm text-gray-500">
-                          <span className="font-medium">Duration:</span> {course.duration}
-                        </div>
-                        <div className="text-lg font-bold text-emerald-600">
-                          {course.price}
-                        </div>
+                    <h3 className="card-title mb-3">{course.title}</h3>
+                    
+                    <p className="card-text mb-4 line-clamp-2">
+                      {course.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        <span className="text-sm">Students</span>
                       </div>
-                      
-                      {/* Course Features */}
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">What you'll learn:</h4>
-                        <ul className="space-y-1">
-                          {course.features.map((feature, index) => (
-                            <li key={index} className="text-xs text-gray-600 flex items-center">
-                              <span className="text-emerald-600 mr-2">✓</span>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      {/* Enroll Button */}
-                      <button className="w-full bg-emerald-600 text-white py-3 px-4 rounded-lg hover:bg-emerald-700 transition-colors text-sm font-medium group-hover:shadow-lg">
-                        Enroll Now
-                      </button>
+                      <span className="font-bold text-emerald-600 text-lg">{course.price}</span>
                     </div>
+                    
+                    <a href={`/courses/${course.id}`} className="card-link">View Details →</a>
                   </div>
                 </div>
               ))}
+            </div>
+            
+            <div className="text-center">
+              <a href="#" className="btn btn-primary">View All Courses →</a>
             </div>
           </div>
         </section>
