@@ -21,7 +21,7 @@ export default function CoursesPage() {
       description: "Jurisprudence, history, and ethics"
     },
     {
-      icon: "🔤",
+      icon: "📝",
       title: "Arabic Language",
       count: "1 Course",
       description: "Classical Arabic and grammar"
@@ -85,16 +85,16 @@ export default function CoursesPage() {
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
               {categories.map((category, index) => (
-                <div key={index} className="group">
-                  <div className="text-center p-8 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div key={index} className="group flex-1">
+                  <div className="text-center p-8 bg-white rounded-2xl border-2 border-emerald-100 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 hover:border-emerald-300 h-full">
+                    <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
                       {category.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{category.title}</h3>
-                    <p className="text-emerald-600 font-semibold mb-3">{category.count}</p>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">{category.title}</h3>
+                    <p className="text-emerald-600 font-semibold mb-4 text-lg">{category.count}</p>
+                    <p className="text-gray-600 leading-relaxed text-base">
                       {category.description}
                     </p>
                   </div>
@@ -159,7 +159,7 @@ export default function CoursesPage() {
         </section>
 
         {/* Why Choose Our Courses */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose Our Courses</h2>
@@ -171,15 +171,12 @@ export default function CoursesPage() {
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto px-4">
               {benefits.map((benefit, index) => (
-                <div key={index} className="group">
-                  <div className="text-center p-6 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {benefit.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-3">{benefit.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                <div key={index} className="group flex-1 mb-8 lg:mb-0">
+                  <div className="text-center p-10 bg-white rounded-2xl border-2 border-emerald-100 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 hover:border-emerald-300 h-full mx-2">
+                    <h3 className="text-xl font-bold text-gray-800 mb-6">{benefit.title}</h3>
+                    <p className="text-gray-600 text-base leading-relaxed px-2">
                       {benefit.description}
                     </p>
                   </div>
