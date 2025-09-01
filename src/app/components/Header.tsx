@@ -43,42 +43,42 @@ const Header: React.FC = () => {
         </div>
       </div>
       
-      {/* Main Navigation */}
-      <div className="navbar">
-        <div className="container">
-          <div className="nav-content">
-            {/* Logo - Left side on mobile, always visible */}
-            <Link href="/" className="logo" aria-label="Qurvia Academy Home">
-              <Image src="/images/logo.png" alt="Qurvia Academy" width={120} height={28} priority />
-            </Link>
-            
-            {/* Desktop Navigation Menu */}
-            <ul className="nav-menu desktop-menu">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/courses">Courses</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-            </ul>
-            
-                         {/* Desktop Buttons */}
+             {/* Main Navigation */}
+       <div className="navbar">
+         <div className="container">
+           <div className="nav-content">
+             {/* Logo - Left side */}
+             <Link href="/" className="logo" aria-label="Qurvia Academy Home">
+               <Image src="/images/logo.png" alt="Qurvia Academy" width={120} height={28} priority />
+             </Link>
+             
+             {/* Desktop Navigation Menu */}
+             <ul className="nav-menu desktop-menu">
+               <li><Link href="/">Home</Link></li>
+               <li><Link href="/about">About</Link></li>
+               <li><Link href="/courses">Courses</Link></li>
+               <li><Link href="/contact">Contact</Link></li>
+             </ul>
+             
+             {/* Desktop Buttons */}
              <div className="search-section desktop-search">
                <div className="auth-buttons flex gap-3">
                  <Link href="/auth/signin" className="btn btn-outline">Login</Link>
                  <Link href="/auth/signup" className="btn btn-primary">Join Now</Link>
                </div>
              </div>
-            
-            {/* Mobile Menu Toggle - Right side on mobile */}
-            <button 
-              className="mobile-menu-toggle"
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-            >
-              <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
-              <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
-              <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
-            </button>
-          </div>
+             
+             {/* Mobile Menu Toggle - Right side */}
+             <button 
+               className="mobile-menu-toggle"
+               onClick={toggleMenu}
+               aria-label="Toggle menu"
+             >
+               <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+               <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+               <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+             </button>
+           </div>
           
           {/* Mobile Menu Dropdown */}
           <div className={`mobile-menu-dropdown ${isMenuOpen ? 'open' : ''}`}>
