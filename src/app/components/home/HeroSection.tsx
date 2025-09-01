@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
     {
       id: 1,
       image: "/images/resources/banner.jpg",
-      title: "Discover the Beauty of Quran Learning & Islamic Studies",
+      title: "Discover the Beauty of Quran Learning",
       subtitle: "Excellence in Islamic Education",
       description: "Embark on a spiritual journey of Quranic learning and Islamic education"
     },
