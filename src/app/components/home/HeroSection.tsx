@@ -81,7 +81,7 @@ const HeroSection: React.FC = () => {
             </p>
             
             {/* Dynamic CTA Buttons based on authentication status */}
-            <div className="md:flex flex-col sm:flex-row gap-3">        {status === 'loading' ? (
+            <div className="herosliderbuton md:flex flex-col sm:flex-row gap-3">        {status === 'loading' ? (
                 <div className="animate-pulse bg-emerald-600/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium">
                   Loading...
                 </div>
