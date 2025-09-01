@@ -187,21 +187,19 @@ export default function CoursesPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
+        <section className="py-20" style={{ background: 'linear-gradient(135deg, #12433f 0%, #0f3a36 100%)' }}>
           <div className="container text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Begin Your Islamic Education?
             </h2>
-            <p className="text-emerald-100 mb-8 max-w-2xl mx-auto text-lg">
+            {/* <p className="text-gray-200 mb-8 max-w-2xl mx-auto text-lg">
               Join our community of learners and start your journey towards Islamic knowledge and spiritual growth
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/courses" className="bg-white text-emerald-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Browse All Courses
+            </p> */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/contact" className="inline-block bg-white text-center py-3 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:bg-gray-50 transform hover:-translate-y-2 transition-all duration-300" style={{ color: '#12433f' }}>
+              Contact Advisor
               </Link>
-              <Link href="/contact" className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors">
-                Contact Advisor
-              </Link>
+             
             </div>
           </div>
         </section>
