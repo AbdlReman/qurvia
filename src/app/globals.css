@@ -425,7 +425,7 @@ header {
 .form-button {
   width: 100%;
   padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: var(--primary-color);
   color: white;
   border: none;
   border-radius: 12px;
@@ -438,8 +438,9 @@ header {
 }
 
 .form-button:hover {
+  background: var(--secondary-color);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
 }
 
 .form-button:active {
