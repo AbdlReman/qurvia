@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
       image: "/images/resources/banner.jpg",
       title: "Discover the Beauty of Quran Learning",
       subtitle: "Excellence in Islamic Education",
-      description: "Embark on a spiritual journey of Quranic learning and Islamic education"
+      description: "Embark on a spiritual journey of Quranic learning "
     },
     {
       id: 2,
@@ -89,19 +89,19 @@ const HeroSection: React.FC = () => {
                 </div>
               ) : session ? (
                 <>
-                  <button className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer">
+                  <button className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-[#ae9143] transition-colors text-center cursor-pointer">
                     Go to Dashboard
                   </button>
-                  <button className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer">
+                  <button className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-[#ae9143] hover:border-[#ae9143] transition-colors text-center cursor-pointer">
                     Browse Courses
                   </button>
                 </>
               ) : (
                 <>
-                  <button className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer">
+                  <button className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-[#ae9143] transition-colors text-center cursor-pointer">
                     Start Your Journey
                   </button>
-                  <button className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer">
+                  <button className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-[#ae9143] hover:border-[#ae9143] transition-colors text-center cursor-pointer">
                     Sign In
                   </button>
                 </>
