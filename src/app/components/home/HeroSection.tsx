@@ -1,8 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { data: session, status } = useSession();
 
   const slides = [
     {
@@ -50,7 +53,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="hero relative h-screen md:h-screen overflow-hidden">
+    <section className="hero relative w-full min-h-screen md:h-screen overflow-hidden">
       {/* Slider Images */}
       {slides.map((slide, index) => (
         <div
@@ -70,7 +73,7 @@ const HeroSection: React.FC = () => {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 container h-full flex items-center px-4 md:px-6 lg:px-8">
+      <div className="relative z-10 container h-full flex items-center px-4 md:px-6 lg:px-8 py-20 md:py-0">
         <div className="hero-content w-full">
           <div className="hero-left max-w-full md:max-w-2xl">
             <span className="hero-tag text-xs md:text-sm lg:text-base mb-2 md:mb-3 block">
@@ -82,9 +85,45 @@ const HeroSection: React.FC = () => {
             <p className="hero-description text-white/90 mb-4 md:mb-6 max-w-lg text-sm md:text-base leading-relaxed">
               {slides[currentSlide].description}
             </p>
-            <a href="#" className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors">
-              Start Your Journey
-            </a>
+            
+            {/* Dynamic CTA Buttons based on authentication status */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {status === 'loading' ? (
+                <div className="animate-pulse bg-emerald-600/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium">
+                  Loading...
+                </div>
+              ) : session ? (
+                <>
+                  <Link 
+                    href={session.user.role === 'admin' ? '/admin/dashboard' : '/dashboard'}
+                    className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer"
+                  >
+                    Go to Dashboard
+                  </Link>
+                  <Link 
+                    href="/courses"
+                    className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer"
+                  >
+                    Browse Courses
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link 
+                    href="/auth/signup"
+                    className="hero-btn hidden lg:inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer"
+                  >
+                    Start Your Journey
+                  </Link>
+                  <Link 
+                    href="/auth/signin"
+                    className="hero-btn hidden lg:inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer"
+                  >
+                    Sign In
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
           
           {/* Video section - hidden on mobile, visible on desktop */}
@@ -99,52 +138,8 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation arrows - hidden on mobile, visible on desktop */}
-      <div className="hero-nav hidden md:flex">
-        <button 
-          className="hero-nav-btn hero-nav-prev"
-          onClick={prevSlide}
-          aria-label="Previous slide"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 18l-6-6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <button 
-          className="hero-nav-btn hero-nav-next"
-          onClick={nextSlide}
-          aria-label="Next slide"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 18l6-6-6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile navigation arrows - visible only on mobile */}
-      <div className="md:hidden absolute bottom-20 left-4 right-4 flex justify-between z-20">
-        <button 
-          className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
-          onClick={prevSlide}
-          aria-label="Previous slide"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18l-6-6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <button 
-          className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
-          onClick={nextSlide}
-          aria-label="Next slide"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
       {/* Slide indicators */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 md:space-x-3">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-[5px]">
         {slides.map((_, index) => (
           <button
             key={index}

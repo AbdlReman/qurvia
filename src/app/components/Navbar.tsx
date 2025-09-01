@@ -2,9 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Navbar() {
 	const [open, setOpen] = useState(false);
+	const { data: session, status } = useSession();
+
+	const handleSignOut = () => {
+		signOut({ callbackUrl: '/' });
+	};
 
 	return (
 		<header className="w-full bg-white/95 backdrop-blur border-b border-black/[.06] sticky top-0 z-50">
@@ -20,8 +26,29 @@ export default function Navbar() {
 					<Link href="/contact" className="hover:text-emerald-700">Contact</Link>
 				</nav>
 				<div className="hidden md:flex items-center gap-3">
-					<Link href="#" className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 hover:bg-emerald-50">Login</Link>
-					<Link href="#" className="text-[14px] px-4 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700">Join Now</Link>
+					{status === 'loading' ? (
+						<div className="animate-pulse bg-gray-200 h-8 w-16 rounded"></div>
+					) : session ? (
+						<>
+							<Link 
+								href={session.user.role === 'admin' ? '/admin/dashboard' : '/dashboard'} 
+								className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
+							>
+								Dashboard
+							</Link>
+							<button 
+								onClick={handleSignOut}
+								className="text-[14px] px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700"
+							>
+								Sign Out
+							</button>
+						</>
+					) : (
+						<>
+							<Link href="/auth/signin" className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 hover:bg-emerald-50">Login</Link>
+							<Link href="/auth/signup" className="text-[14px] px-4 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700">Join Now</Link>
+						</>
+					)}
 				</div>
 				<button aria-label="Menu" className="md:hidden inline-flex items-center p-2" onClick={() => setOpen(!open)}>
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
@@ -35,8 +62,33 @@ export default function Navbar() {
 						<Link href="/courses" onClick={() => setOpen(false)}>Courses</Link>
 						<Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
 						<div className="flex gap-3 pt-2">
-							<Link href="#" className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700">Login</Link>
-							<Link href="#" className="text-[14px] px-4 py-2 rounded-md bg-emerald-600 text-white">Join Now</Link>
+							{status === 'loading' ? (
+								<div className="animate-pulse bg-gray-200 h-8 w-16 rounded"></div>
+							) : session ? (
+								<>
+									<Link 
+										href={session.user.role === 'admin' ? '/admin/dashboard' : '/dashboard'} 
+										className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700"
+										onClick={() => setOpen(false)}
+									>
+										Dashboard
+									</Link>
+									<button 
+										onClick={() => {
+											handleSignOut();
+											setOpen(false);
+										}}
+										className="text-[14px] px-4 py-2 rounded-md bg-red-600 text-white"
+									>
+										Sign Out
+									</button>
+								</>
+							) : (
+								<>
+									<Link href="/auth/signin" className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700">Login</Link>
+									<Link href="/auth/signup" className="text-[14px] px-4 py-2 rounded-md bg-emerald-600 text-white">Join Now</Link>
+								</>
+							)}
 						</div>
 					</div>
 				</div>
