@@ -167,19 +167,18 @@ export default function SignUpPage() {
   };
 
   const getInputClassName = (field: keyof ValidationErrors): string => {
-    const baseClass = "mt-1 appearance-none relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:z-10 sm:text-sm";
+    const baseClass = "form-input";
     return hasError(field) 
-      ? `${baseClass} border-secondary-300 focus:ring-secondary-500 focus:border-secondary-500`
-      : `${baseClass} border-gray-300 focus:ring-blue-500 focus:border-blue-500`;
+      ? `${baseClass} error`
+      : baseClass;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen auth-background flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="auth-content max-w-lg w-full">
+        <div className="form-container">
         <div>
-          <div className="mx-auto h-12 w-12 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-full flex items-center justify-center">
-            <span className="text-white text-xl font-bold">Q</span>
-          </div>
+        
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Create your account
           </h2>
@@ -204,9 +203,9 @@ export default function SignUpPage() {
             </div>
           )}
           
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <div className="space-y-6">
+            <div className="form-group">
+              <label htmlFor="name" className="form-label">
                 Full Name *
               </label>
               <input
@@ -222,12 +221,15 @@ export default function SignUpPage() {
                 placeholder="Enter your full name"
               />
               {hasError('name') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.name}</p>
+                <div className="form-error">
+                  <span>⚠️</span>
+                  {validationErrors.name}
+                </div>
               )}
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">
                 Email address *
               </label>
               <input
@@ -243,12 +245,15 @@ export default function SignUpPage() {
                 placeholder="Enter your email"
               />
               {hasError('email') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.email}</p>
+                <div className="form-error">
+                  <span>⚠️</span>
+                  {validationErrors.email}
+                </div>
               )}
             </div>
 
-            <div>
-              <label htmlFor="role" className="block text-sm font-medium text-gray-700">
+            <div className="form-group">
+              <label htmlFor="role" className="form-label">
                 I want to join as *
               </label>
               <select
@@ -256,35 +261,63 @@ export default function SignUpPage() {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="form-select"
               >
                 <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
               </select>
             </div>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                Phone Number
-              </label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                autoComplete="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={getInputClassName('phone')}
-                placeholder="Enter your phone number (optional)"
-              />
-              {hasError('phone') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.phone}</p>
-              )}
+            <div className="form-group">
+              <div className="form-row">
+                <div>
+                  <label htmlFor="phone" className="form-label">
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClassName('phone')}
+                    placeholder="Enter your phone number (optional)"
+                  />
+                  {hasError('phone') && (
+                    <div className="form-error">
+                      <span>⚠️</span>
+                      {validationErrors.phone}
+                    </div>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="dateOfBirth" className="form-label">
+                    Date of Birth
+                  </label>
+                  <input
+                    id="dateOfBirth"
+                    name="dateOfBirth"
+                    type="date"
+                    value={formData.dateOfBirth}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClassName('dateOfBirth')}
+                  />
+                  {hasError('dateOfBirth') && (
+                    <div className="form-error">
+                      <span>⚠️</span>
+                      {validationErrors.dateOfBirth}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
-            <div>
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+            <div className="form-group">
+              <label htmlFor="address" className="form-label">
                 Address
               </label>
               <input
@@ -299,79 +332,74 @@ export default function SignUpPage() {
                 placeholder="Enter your address (optional)"
               />
               {hasError('address') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.address}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700">
-                Date of Birth
-              </label>
-              <input
-                id="dateOfBirth"
-                name="dateOfBirth"
-                type="date"
-                value={formData.dateOfBirth}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={getInputClassName('dateOfBirth')}
-              />
-              {hasError('dateOfBirth') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.dateOfBirth}</p>
+                <div className="form-error">
+                  <span>⚠️</span>
+                  {validationErrors.address}
+                </div>
               )}
             </div>
             
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Password *
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={getInputClassName('password')}
-                placeholder="Enter your password (min 8 characters)"
-              />
-              {hasError('password') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.password}</p>
-              )}
-            </div>
+            <div className="form-group">
+              <div className="form-row">
+                <div>
+                  <label htmlFor="password" className="form-label">
+                    Password *
+                  </label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="new-password"
+                    required
+                    value={formData.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClassName('password')}
+                    placeholder="Enter your password (min 8 characters)"
+                  />
+                  {hasError('password') && (
+                    <div className="form-error">
+                      <span>⚠️</span>
+                      {validationErrors.password}
+                    </div>
+                  )}
+                </div>
 
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                Confirm Password *
-              </label>
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                autoComplete="new-password"
-                required
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={getInputClassName('confirmPassword')}
-                placeholder="Confirm your password"
-              />
-              {hasError('confirmPassword') && (
-                <p className="mt-1 text-sm text-secondary-600">{validationErrors.confirmPassword}</p>
-              )}
+                <div>
+                  <label htmlFor="confirmPassword" className="form-label">
+                    Confirm Password *
+                  </label>
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    autoComplete="new-password"
+                    required
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={getInputClassName('confirmPassword')}
+                    placeholder="Confirm your password"
+                  />
+                  {hasError('confirmPassword') && (
+                    <div className="form-error">
+                      <span>⚠️</span>
+                      {validationErrors.confirmPassword}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
 
-          <div>
+          <div className="form-group submit-group mt-4">
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="form-button"
             >
               {loading ? (
-                <div className="flex items-center">
+                <div className="flex items-center justify-center">
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                   Creating account...
                 </div>
@@ -387,6 +415,7 @@ export default function SignUpPage() {
             </Link>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );

@@ -30,67 +30,67 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Send Us a Message</h2>
                 <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="firstName" className="form-label">
                         First Name
                       </label>
                       <input
                         type="text"
                         id="firstName"
                         name="firstName"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                        className="form-input"
                         placeholder="Enter your first name"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="form-group">
+                      <label htmlFor="lastName" className="form-label">
                         Last Name
                       </label>
                       <input
                         type="text"
                         id="lastName"
                         name="lastName"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                        className="form-input"
                         placeholder="Enter your last name"
                       />
                     </div>
                   </div>
                   
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-group">
+                    <label htmlFor="email" className="form-label">
                       Email Address
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                      className="form-input"
                       placeholder="Enter your email address"
                     />
                   </div>
                   
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-group">
+                    <label htmlFor="phone" className="form-label">
                       Phone Number
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                      className="form-input"
                       placeholder="Enter your phone number"
                     />
                   </div>
                   
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-group">
+                    <label htmlFor="subject" className="form-label">
                       Subject
                     </label>
                     <select
                       id="subject"
                       name="subject"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                      className="form-select"
                     >
                       <option value="">Select a subject</option>
                       <option value="general">General Inquiry</option>
@@ -103,22 +103,22 @@ export default function ContactPage() {
                     </select>
                   </div>
                   
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-group">
+                    <label htmlFor="message" className="form-label">
                       Message
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                      className="form-textarea"
                       placeholder="Enter your message here..."
                     ></textarea>
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full bg-emerald-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-emerald-700 transition-colors"
+                    className="form-button"
                   >
                     Send Message
                   </button>
