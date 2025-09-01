@@ -130,7 +130,7 @@ const HeroSection: React.FC = () => {
             className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               index === currentSlide 
                 ? 'bg-white scale-125' 
-                : 'bg-white/50 hover:bg-white/75'
+                : 'bg-white/50 hover:bg-[#ae9143]'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
