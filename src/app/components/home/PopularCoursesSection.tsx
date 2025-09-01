@@ -50,7 +50,7 @@ const PopularCoursesSection: React.FC = () => {
             </div>
         
         <div className="text-center">
-          <a href="#" className="btn btn-primary">View All Courses →</a>
+          <a href="/courses" className="btn btn-primary">View All Courses →</a>
         </div>
       </div>
     </section>

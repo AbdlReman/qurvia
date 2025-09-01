@@ -23,24 +23,24 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="footer-title">About Us</h3>
             <ul className="footer-links">
-              <li><a href="#">About Academy</a></li>
-              <li><a href="#">Quran Courses</a></li>
-              <li><a href="#">Islamic Studies</a></li>
-              <li><a href="#">Our Teachers</a></li>
-              <li><a href="#">Join as Teacher</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="/about">About Academy</a></li>
+              <li><a href="/courses">Quran Courses</a></li>
+              <li><a href="/courses">Islamic Studies</a></li>
+              <li><a href="/about">Our Teachers</a></li>
+              <li><a href="/contact">Join as Teacher</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="footer-title">Useful Links</h3>
             <ul className="footer-links">
-              <li><a href="#">Quran Library</a></li>
-              <li><a href="#">Islamic Resources</a></li>
-              <li><a href="#">Partners</a></li>
-              <li><a href="#">News & Updates</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Learning Guides</a></li>
+              <li><a href="/courses">Quran Library</a></li>
+              <li><a href="/courses">Islamic Resources</a></li>
+              <li><a href="/about">Partners</a></li>
+              <li><a href="/about">News & Updates</a></li>
+              <li><a href="/contact">FAQ</a></li>
+              <li><a href="/courses">Learning Guides</a></li>
             </ul>
           </div>
           
@@ -61,14 +61,14 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="footer-bottom">
-          <div>© {new Date().getFullYear()} <a href="#" className="text-white">Qurvia Academy.</a> All Rights Reserved</div>
+          <div>© {new Date().getFullYear()} <a href="/" className="text-white">Qurvia Academy.</a> All Rights Reserved</div>
           <div className="flex items-center gap-4">
             <span className="text-gray-300">Follow us</span>
             <ul className="social-links">
-              <li><a href="#"><span>📘</span></a></li>
-              <li><a href="#"><span>🐦</span></a></li>
-              <li><a href="#"><span>💼</span></a></li>
-              <li><a href="#"><span>📷</span></a></li>
+              <li><a href="/about"><span>📘</span></a></li>
+              <li><a href="/about"><span>🐦</span></a></li>
+              <li><a href="/about"><span>💼</span></a></li>
+              <li><a href="/about"><span>📷</span></a></li>
             </ul>
           </div>
         </div>

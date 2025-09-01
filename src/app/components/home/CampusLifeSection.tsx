@@ -66,7 +66,7 @@ const CampusLifeSection: React.FC = () => {
         
         {/* Bottom CTA */}
         <div className="campus-life-cta">
-          <a href="#" className="campus-life-cta-button">
+          <a href="/about" className="campus-life-cta-button">
             Explore Academy Life →
           </a>
         </div>

@@ -6,25 +6,25 @@ const AcademicsSection: React.FC = () => {
       id: 1,
       title: "Quran Memorization",
       image: "/images/resources/gallery_1_1.jpg",
-      link: "#"
+      link: "/courses"
     },
     {
       id: 2,
       title: "Tajweed & Qira'ah",
       image: "/images/resources/gallery_1_2.jpg",
-      link: "#"
+      link: "/courses"
     },
     {
       id: 3,
       title: "Islamic Studies",
       image: "/images/resources/gallery_1_3.jpg",
-      link: "#"
+      link: "/courses"
     },
     {
       id: 4,
       title: "Online Learning",
       image: "/images/resources/gallery_1_4.jpg",
-      link: "#"
+      link: "/courses"
     }
   ];
 

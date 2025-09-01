@@ -131,13 +131,13 @@ export default function AboutPage() {
             </div>
             
             <div className="welcome-cta-group">
-              <a href="#" className="welcome-primary-btn text-sm sm:text-base">
+              <a href="/auth/signup" className="welcome-primary-btn text-sm sm:text-base">
                 Enroll Now
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-              <a href="#" className="welcome-secondary-btn text-sm sm:text-base">
+              <a href="/courses" className="welcome-secondary-btn text-sm sm:text-base">
                 Virtual Tour
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 5v14l11-7z" fill="currentColor"/>
@@ -213,9 +213,9 @@ export default function AboutPage() {
                   Ready to dive in? Start your free Course today.
                 </h2>
               </div>
-              <button className="bg-white text-secondary-600 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base">
+              <a href="/contact" className="bg-white text-secondary-600 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base">
                 Go To FAQ →
-              </button>
+              </a>
             </div>
           </div>
         </section>

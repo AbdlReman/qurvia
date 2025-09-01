@@ -152,7 +152,7 @@ export default function CoursesPage() {
             </div>
             
             <div className="text-center">
-              <a href="#" className="btn btn-primary">View All Courses →</a>
+              <a href="/courses" className="btn btn-primary">View All Courses →</a>
             </div>
           </div>
         </section>
@@ -198,12 +198,12 @@ export default function CoursesPage() {
               Join our community of learners and start your journey towards Islamic knowledge and spiritual growth
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-emerald-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/courses" className="bg-white text-emerald-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Browse All Courses
-              </button>
-              <button className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors">
+              </a>
+              <a href="/contact" className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors">
                 Contact Advisor
-              </button>
+              </a>
             </div>
           </div>
         </section>

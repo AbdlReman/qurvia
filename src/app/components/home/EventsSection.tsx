@@ -77,7 +77,7 @@ const EventsSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <a href="#" className="card-link">Read More →</a>
+                <a href="/about" className="card-link">Read More →</a>
               </div>
             </div>
           ))}
