@@ -42,7 +42,7 @@ export default function CoursesPage() {
     {
       icon: "📚",
       title: "Comprehensive Curriculum",
-      description: "Well-structured programs covering all aspects of Islamic education"
+      description: "Structured programs covering all aspects of Islamic education"
     },
     {
       icon: "🎯",
