@@ -169,7 +169,7 @@ export default function SignUpPage() {
   const getInputClassName = (field: keyof ValidationErrors): string => {
     const baseClass = "mt-1 appearance-none relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:z-10 sm:text-sm";
     return hasError(field) 
-      ? `${baseClass} border-red-300 focus:ring-red-500 focus:border-red-500`
+      ? `${baseClass} border-secondary-300 focus:ring-secondary-500 focus:border-secondary-500`
       : `${baseClass} border-gray-300 focus:ring-blue-500 focus:border-blue-500`;
   };
 
@@ -193,7 +193,7 @@ export default function SignUpPage() {
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+            <div className="bg-secondary-50 border border-secondary-200 text-secondary-700 px-4 py-3 rounded-md text-sm">
               {error}
             </div>
           )}
@@ -222,7 +222,7 @@ export default function SignUpPage() {
                 placeholder="Enter your full name"
               />
               {hasError('name') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.name}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.name}</p>
               )}
             </div>
 
@@ -243,7 +243,7 @@ export default function SignUpPage() {
                 placeholder="Enter your email"
               />
               {hasError('email') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.email}</p>
               )}
             </div>
 
@@ -279,7 +279,7 @@ export default function SignUpPage() {
                 placeholder="Enter your phone number (optional)"
               />
               {hasError('phone') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.phone}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.phone}</p>
               )}
             </div>
 
@@ -299,7 +299,7 @@ export default function SignUpPage() {
                 placeholder="Enter your address (optional)"
               />
               {hasError('address') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.address}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.address}</p>
               )}
             </div>
 
@@ -317,7 +317,7 @@ export default function SignUpPage() {
                 className={getInputClassName('dateOfBirth')}
               />
               {hasError('dateOfBirth') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.dateOfBirth}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.dateOfBirth}</p>
               )}
             </div>
             
@@ -338,7 +338,7 @@ export default function SignUpPage() {
                 placeholder="Enter your password (min 8 characters)"
               />
               {hasError('password') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.password}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.password}</p>
               )}
             </div>
 
@@ -359,7 +359,7 @@ export default function SignUpPage() {
                 placeholder="Confirm your password"
               />
               {hasError('confirmPassword') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.confirmPassword}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.confirmPassword}</p>
               )}
             </div>
           </div>

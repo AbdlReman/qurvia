@@ -54,7 +54,7 @@ const BlogSection: React.FC = () => {
               <div className="relative">
                 <img src={blog.image} alt={blog.title} className="card-image" />
                 {blog.isNew && (
-                  <div className="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded">
+                  <div className="absolute top-2 right-2 bg-secondary-600 text-white text-xs px-2 py-1 rounded">
                     New
                   </div>
                 )}

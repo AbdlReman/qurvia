@@ -66,7 +66,7 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={() => signOut()}
-                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-sm font-medium text-white transition-colors"
+                className="bg-secondary-600 hover:bg-secondary-700 px-4 py-2 rounded-md text-sm font-medium text-white transition-colors"
               >
                 Sign Out
               </button>

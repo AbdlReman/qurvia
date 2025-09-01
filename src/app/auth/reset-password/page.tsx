@@ -123,7 +123,7 @@ export default function ResetPasswordPage() {
   const getInputClassName = (field: keyof typeof validationErrors): string => {
     const baseClass = "mt-1 appearance-none relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:z-10 sm:text-sm";
     return hasError(field) 
-      ? `${baseClass} border-red-300 focus:ring-red-500 focus:border-red-500`
+      ? `${baseClass} border-secondary-300 focus:ring-secondary-500 focus:border-secondary-500`
       : `${baseClass} border-gray-300 focus:ring-blue-500 focus:border-blue-500`;
   };
 
@@ -141,7 +141,7 @@ export default function ResetPasswordPage() {
           </div>
           
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+            <div className="bg-secondary-50 border border-secondary-200 text-secondary-700 px-4 py-3 rounded-md text-sm">
               {error}
             </div>
           )}
@@ -173,7 +173,7 @@ export default function ResetPasswordPage() {
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+            <div className="bg-secondary-50 border border-secondary-200 text-secondary-700 px-4 py-3 rounded-md text-sm">
               {error}
             </div>
           )}
@@ -202,7 +202,7 @@ export default function ResetPasswordPage() {
                 placeholder="Enter your new password (min 8 characters)"
               />
               {hasError('password') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.password}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.password}</p>
               )}
             </div>
 
@@ -223,7 +223,7 @@ export default function ResetPasswordPage() {
                 placeholder="Confirm your new password"
               />
               {hasError('confirmPassword') && (
-                <p className="mt-1 text-sm text-red-600">{validationErrors.confirmPassword}</p>
+                <p className="mt-1 text-sm text-secondary-600">{validationErrors.confirmPassword}</p>
               )}
             </div>
           </div>

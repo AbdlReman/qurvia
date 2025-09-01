@@ -57,7 +57,7 @@ export default function TestAuthPage() {
   };
 
   const getStatusColor = (status: number) => {
-    return status === 200 ? 'text-green-600' : 'text-red-600';
+    return status === 200 ? 'text-green-600' : 'text-secondary-600';
   };
 
   const getStatusText = (status: number) => {
@@ -135,9 +135,9 @@ export default function TestAuthPage() {
               )}
 
               {results.error && (
-                <div className="border border-red-200 rounded-md p-4 bg-red-50">
-                  <h3 className="font-medium text-red-900 mb-2">Error</h3>
-                  <p className="text-red-700">{results.error}</p>
+                <div className="border border-secondary-200 rounded-md p-4 bg-secondary-50">
+                  <h3 className="font-medium text-secondary-900 mb-2">Error</h3>
+                  <p className="text-secondary-700">{results.error}</p>
                 </div>
               )}
             </div>
@@ -150,7 +150,7 @@ export default function TestAuthPage() {
           </h2>
           
           <div className="space-y-4 text-sm">
-            <div className="border-l-4 border-red-500 pl-4">
+            <div className="border-l-4 border-secondary-500 pl-4">
               <h3 className="font-medium text-gray-900">❌ Basic API Test Fails</h3>
               <p className="text-gray-600">Server is not running properly. Restart with:</p>
               <code className="bg-gray-100 px-2 py-1 rounded block mt-1">npm run dev</code>

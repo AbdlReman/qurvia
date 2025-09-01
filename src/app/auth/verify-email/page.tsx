@@ -76,7 +76,7 @@ export default function VerifyEmailPage() {
           )}
           
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+            <div className="bg-secondary-50 border border-secondary-200 text-secondary-700 px-4 py-3 rounded-md text-sm">
               {error}
             </div>
           )}

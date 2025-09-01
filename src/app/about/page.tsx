@@ -155,7 +155,7 @@ export default function AboutPage() {
         <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="mb-8 sm:mb-12 lg:mb-16">
-              <div className="text-red-600 font-medium mb-2 text-sm sm:text-base">Course Instructors</div>
+              <div className="text-secondary-600 font-medium mb-2 text-sm sm:text-base">Course Instructors</div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
                 Meet our Class Instructors
               </h2>
@@ -197,7 +197,7 @@ export default function AboutPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-red-600 to-red-700 relative overflow-hidden">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-secondary-600 to-secondary-700 relative overflow-hidden">
           {/* Background decorative elements */}
           <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-full"></div>
@@ -213,7 +213,7 @@ export default function AboutPage() {
                   Ready to dive in? Start your free Course today.
                 </h2>
               </div>
-              <button className="bg-white text-red-600 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base">
+              <button className="bg-white text-secondary-600 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base">
                 Go To FAQ →
               </button>
             </div>

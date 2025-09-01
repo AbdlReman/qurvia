@@ -4,13 +4,28 @@
   --primary-color: #12433f;
   --secondary-color: #ae9143;
   --primary-blue: #1e3a8a;
-  --primary-red: #dc2626;
+  --primary-red: #ae9143;
   --accent-green: #10b981;
   --text-dark: #1f2937;
   --text-gray: #6b7280;
   --bg-white: #ffffff;
   --bg-light-gray: #f9fafb;
   --bg-dark-gray: #374151;
+}
+
+/* Secondary color palette */
+@theme {
+  --color-secondary-50: #fefce8;
+  --color-secondary-100: #fef9c3;
+  --color-secondary-200: #fef08a;
+  --color-secondary-300: #fde047;
+  --color-secondary-400: #facc15;
+  --color-secondary-500: #eab308;
+  --color-secondary-600: #ca8a04;
+  --color-secondary-700: #a16207;
+  --color-secondary-800: #854d0e;
+  --color-secondary-900: #713f12;
+  --color-secondary-950: #422006;
 }
 
 * {
@@ -241,7 +256,7 @@ html, body { overflow-x: hidden; }
 
 .mobile-nav-menu a:hover {
   background-color: #f9fafb;
-  color: var(--primary-red);
+  color: var(--secondary-color);
 }
 
 .mobile-search-section {
@@ -1139,7 +1154,7 @@ html, body { overflow-x: hidden; }
 }
 
 .card-link {
-  color: var(--primary-red);
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: 500;
 }
@@ -1153,7 +1168,7 @@ html, body { overflow-x: hidden; }
 
 /* Statistics Section */
 .stats-section {
-  background: var(--primary-red);
+  background: var(--secondary-color);
   color: white;
   padding: 4rem 0;
 }

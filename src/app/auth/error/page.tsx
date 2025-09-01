@@ -36,7 +36,7 @@ export default function AuthErrorPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <div className="mx-auto h-12 w-12 bg-red-500 rounded-full flex items-center justify-center">
+          <div className="mx-auto h-12 w-12 bg-secondary-500 rounded-full flex items-center justify-center">
             <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -50,7 +50,7 @@ export default function AuthErrorPage() {
         </div>
         
         <div className="space-y-4">
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+          <div className="bg-secondary-50 border border-secondary-200 text-secondary-700 px-4 py-3 rounded-md text-sm">
             <strong>Error Code:</strong> {error}
           </div>
           

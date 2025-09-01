@@ -38,7 +38,7 @@ export default function Navbar() {
 							</Link>
 							<button 
 								onClick={handleSignOut}
-								className="text-[14px] px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700"
+								className="text-[14px] px-4 py-2 rounded-md bg-secondary-600 text-white hover:bg-secondary-700"
 							>
 								Sign Out
 							</button>
@@ -78,7 +78,7 @@ export default function Navbar() {
 											handleSignOut();
 											setOpen(false);
 										}}
-										className="text-[14px] px-4 py-2 rounded-md bg-red-600 text-white"
+										className="text-[14px] px-4 py-2 rounded-md bg-secondary-600 text-white"
 									>
 										Sign Out
 									</button>

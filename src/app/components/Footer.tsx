@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <div className="footer-content">
           <div>
             <div className="footer-title">
-              <span className="text-red-600">■</span> Qurvia Academy.
+              <span className="text-secondary-600">■</span> Qurvia Academy.
             </div>
             <p className="text-gray-300 mb-4">
               Dedicated to excellence in Quranic education and Islamic studies. 

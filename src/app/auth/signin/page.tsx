@@ -104,7 +104,7 @@ export default function SignInPage() {
         {!showForgotPassword ? (
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+              <div className="bg-secondary-50 border border-secondary-200 text-secondary-700 px-4 py-3 rounded-md text-sm">
                 {error}
               </div>
             )}
@@ -183,7 +183,7 @@ export default function SignInPage() {
             {forgotPasswordMessage && (
               <div className={`px-4 py-3 rounded-md text-sm ${
                 forgotPasswordMessage.includes('error') || forgotPasswordMessage.includes('Failed')
-                  ? 'bg-red-50 border border-red-200 text-red-700'
+                  ? 'bg-secondary-50 border border-secondary-200 text-secondary-700'
                   : 'bg-green-50 border border-green-200 text-green-700'
               }`}>
                 {forgotPasswordMessage}

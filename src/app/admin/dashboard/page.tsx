@@ -124,7 +124,7 @@ export default function AdminDashboard() {
               <span className="text-gray-300">Welcome, {session.user.name}</span>
               <button
                 onClick={() => signOut()}
-                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                className="bg-secondary-600 hover:bg-secondary-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Sign Out
               </button>
@@ -180,14 +180,14 @@ export default function AdminDashboard() {
 
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <div className="flex items-center">
-              <div className="p-2 bg-red-500 rounded-lg">
+              <div className="p-2 bg-secondary-500 rounded-lg">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
               <div className="ml-4">
                 <p className="text-gray-400 text-sm">Admins</p>
-                <p className="text-2xl font-semibold text-red-400">{stats.admins}</p>
+                <p className="text-2xl font-semibold text-secondary-400">{stats.admins}</p>
               </div>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function AdminDashboard() {
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                         user.isActive 
                           ? 'bg-green-100 text-green-800' 
-                          : 'bg-red-100 text-red-800'
+                          : 'bg-secondary-100 text-secondary-800'
                       }`}>
                         {user.isActive ? 'Active' : 'Inactive'}
                       </span>
@@ -263,7 +263,7 @@ export default function AdminDashboard() {
                         onClick={() => handleToggleUserStatus(user._id, user.isActive)}
                         className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
                           user.isActive
-                            ? 'bg-red-600 hover:bg-red-700 text-white'
+                            ? 'bg-secondary-600 hover:bg-secondary-700 text-white'
                             : 'bg-green-600 hover:bg-green-700 text-white'
                         }`}
                       >

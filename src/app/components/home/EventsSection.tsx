@@ -53,7 +53,7 @@ const EventsSection: React.FC = () => {
             <div key={event.id} className="card">
               <div className="card-content">
                 <div className="text-center mb-4">
-                  <div className="text-3xl font-bold text-red-600">{event.date}</div>
+                  <div className="text-3xl font-bold text-secondary-600">{event.date}</div>
                   <div className="text-gray-600">{event.month}</div>
                 </div>
                 
@@ -85,7 +85,7 @@ const EventsSection: React.FC = () => {
         
         {/* Navigation dots */}
         <div className="flex justify-center gap-2">
-          <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+          <div className="w-3 h-3 bg-secondary-600 rounded-full"></div>
           <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
           <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
         </div>

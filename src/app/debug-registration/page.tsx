@@ -128,11 +128,11 @@ export default function DebugRegistrationPage() {
               )}
 
               {testResults.error && (
-                <div className="border border-red-200 rounded-md p-4 bg-red-50">
-                  <h3 className="font-medium text-red-900 mb-2">
+                <div className="border border-secondary-200 rounded-md p-4 bg-secondary-50">
+                  <h3 className="font-medium text-secondary-900 mb-2">
                     Error
                   </h3>
-                  <p className="text-red-700">{testResults.error}</p>
+                  <p className="text-secondary-700">{testResults.error}</p>
                 </div>
               )}
             </div>

@@ -74,7 +74,7 @@ const TestimonialSection: React.FC = () => {
               key={index}
               onClick={() => goToTestimonial(index)}
               className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                index === currentTestimonial ? 'bg-red-600' : 'bg-gray-300 hover:bg-gray-400'
+                index === currentTestimonial ? 'bg-secondary-600' : 'bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
