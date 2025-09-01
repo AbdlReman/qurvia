@@ -62,7 +62,7 @@ const Header: React.FC = () => {
             
                          {/* Desktop Buttons */}
              <div className="search-section desktop-search">
-               <div className="auth-buttons">
+               <div className="auth-buttons flex gap-3">
                  <Link href="/auth/signin" className="btn btn-outline">Login</Link>
                  <Link href="/auth/signup" className="btn btn-primary">Join Now</Link>
                </div>
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
             </ul>
             
                          <div className="mobile-search-section">
-               <div className="auth-buttons">
+               <div className="auth-buttons flex gap-3">
                  <Link href="/auth/signin" className="btn btn-outline mobile-btn">Login</Link>
                  <Link href="/auth/signup" className="btn btn-primary mobile-btn">Join Now</Link>
                </div>
