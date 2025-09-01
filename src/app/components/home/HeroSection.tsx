@@ -40,13 +40,7 @@ const HeroSection: React.FC = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -87,40 +81,29 @@ const HeroSection: React.FC = () => {
             </p>
             
             {/* Dynamic CTA Buttons based on authentication status */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              {status === 'loading' ? (
+            <div className="md:flex flex-col sm:flex-row gap-3" style={{
+              display: window.innerWidth < 640 ? 'none' : 'flex'
+            }}>        {status === 'loading' ? (
                 <div className="animate-pulse bg-emerald-600/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium">
                   Loading...
                 </div>
               ) : session ? (
                 <>
-                  <Link 
-                    href={session.user.role === 'admin' ? '/admin/dashboard' : '/dashboard'}
-                    className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer"
-                  >
+                  <button className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer">
                     Go to Dashboard
-                  </Link>
-                  <Link 
-                    href="/courses"
-                    className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer"
-                  >
+                  </button>
+                  <button className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer">
                     Browse Courses
-                  </Link>
+                  </button>
                 </>
               ) : (
                 <>
-                  <Link 
-                    href="/auth/signup"
-                    className="hero-btn hidden lg:inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer"
-                  >
+                  <button className="hero-btn inline-block bg-emerald-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-emerald-700 transition-colors text-center cursor-pointer">
                     Start Your Journey
-                  </Link>
-                  <Link 
-                    href="/auth/signin"
-                    className="hero-btn hidden lg:inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer"
-                  >
+                  </button>
+                  <button className="hero-btn inline-block bg-white/20 backdrop-blur-sm text-white border border-white/30 px-4 py-2 md:px-6 md:py-3 rounded-md text-sm md:text-base font-medium hover:bg-white/30 transition-colors text-center cursor-pointer">
                     Sign In
-                  </Link>
+                  </button>
                 </>
               )}
             </div>

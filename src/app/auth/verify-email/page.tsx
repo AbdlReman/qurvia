@@ -8,50 +8,49 @@ export default function VerifyEmailPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [token, setToken] = useState('');
+
   const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    const verifyEmail = async (verificationToken: string) => {
+      setLoading(true);
+      setError('');
+      setSuccess('');
+
+      try {
+        const response = await fetch('/api/auth/verify-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ token: verificationToken }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          setError(data.error || 'Email verification failed');
+        } else {
+          setSuccess('Email verified successfully! Redirecting to sign in...');
+          setTimeout(() => {
+            router.push('/auth/signin');
+          }, 2000);
+        }
+      } catch {
+        setError('An error occurred. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     const tokenParam = searchParams.get('token');
     if (tokenParam) {
-      setToken(tokenParam);
       verifyEmail(tokenParam);
     } else {
       setError('Invalid verification link. Please check your email for the correct link.');
     }
-  }, [searchParams]);
-
-  const verifyEmail = async (verificationToken: string) => {
-    setLoading(true);
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await fetch('/api/auth/verify-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ token: verificationToken }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Email verification failed');
-      } else {
-        setSuccess('Email verified successfully! Redirecting to sign in...');
-        setTimeout(() => {
-          router.push('/auth/signin');
-        }, 2000);
-      }
-    } catch (error) {
-      setError('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [searchParams, router]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

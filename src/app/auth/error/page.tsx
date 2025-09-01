@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function AuthErrorPage() {
   const [error, setError] = useState('');
   const [errorDescription, setErrorDescription] = useState('');
-  const router = useRouter();
+
   const searchParams = useSearchParams();
 
   useEffect(() => {

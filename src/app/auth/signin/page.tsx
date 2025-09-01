@@ -40,7 +40,7 @@ export default function SignInPage() {
           router.push('/dashboard');
         }
       }
-    } catch (error) {
+    } catch {
       setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
@@ -69,7 +69,7 @@ export default function SignInPage() {
       } else {
         setForgotPasswordMessage(data.error || 'Failed to send reset email');
       }
-    } catch (error) {
+    } catch {
       setForgotPasswordMessage('An error occurred. Please try again.');
     } finally {
       setForgotPasswordLoading(false);

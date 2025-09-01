@@ -39,7 +39,6 @@ export default function Dashboard() {
   }
 
   const isTeacher = session.user.role === 'teacher';
-  const isStudent = session.user.role === 'student';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">

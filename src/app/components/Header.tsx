@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +13,8 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      {/* Top Bar */}
-      <div className="topbar">
+      {/* Top Bar - Hidden on mobile */}
+      <div className="topbar hidden md:block">
         <div className="container">
           <div className="topbar-content">
             <div className="topbar-contact">
@@ -46,9 +47,9 @@ const Header: React.FC = () => {
       <div className="navbar">
         <div className="container">
           <div className="nav-content">
-            {/* Logo - Always visible */}
-            <Link href="/" className="logo">
-              <span className="text-red-600">■</span> Qurvia Academy.
+            {/* Logo - Left side on mobile, always visible */}
+            <Link href="/" className="logo" aria-label="Qurvia Academy Home">
+              <Image src="/images/logo.png" alt="Qurvia Academy" width={120} height={28} priority />
             </Link>
             
             {/* Desktop Navigation Menu */}
@@ -65,7 +66,7 @@ const Header: React.FC = () => {
                <a href="#" className="btn btn-primary">Join Now</a>
              </div>
             
-            {/* Mobile Menu Toggle - Always visible on mobile */}
+            {/* Mobile Menu Toggle - Right side on mobile */}
             <button 
               className="mobile-menu-toggle"
               onClick={toggleMenu}

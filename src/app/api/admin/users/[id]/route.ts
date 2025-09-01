@@ -4,9 +4,14 @@ import { authOptions } from '@/lib/auth';
 import dbConnect from '@/lib/mongodb';
 import User from '@/models/User';
 
+interface UpdateData {
+  role?: 'student' | 'teacher' | 'admin';
+  isActive?: boolean;
+}
+
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -19,7 +24,7 @@ export async function PATCH(
       );
     }
 
-    const { id } = params;
+    const { id } = await params;
     const { role, isActive } = await request.json();
 
     await dbConnect();
@@ -34,7 +39,7 @@ export async function PATCH(
     }
 
     // Update user fields
-    const updateData: any = {};
+    const updateData: UpdateData = {};
     if (role !== undefined) {
       if (!['student', 'teacher', 'admin'].includes(role)) {
         return NextResponse.json(
@@ -61,7 +66,7 @@ export async function PATCH(
       user: updatedUser 
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error updating user:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

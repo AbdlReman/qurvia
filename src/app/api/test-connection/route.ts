@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     console.log('Testing database connection...');
     
@@ -24,13 +24,15 @@ export async function GET(request: NextRequest) {
       { status: 200 }
     );
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Database connection test failed:', error);
+    
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     
     return NextResponse.json(
       { 
         error: 'Database connection failed',
-        details: error.message,
+        details: errorMessage,
         timestamp: new Date().toISOString(),
         environment: {
           nodeEnv: process.env.NODE_ENV,

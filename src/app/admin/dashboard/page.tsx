@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+
 
 interface User {
   _id: string;

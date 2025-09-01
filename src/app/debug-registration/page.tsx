@@ -2,13 +2,23 @@
 
 import React, { useState } from 'react';
 
+interface TestResults {
+  environment?: Record<string, unknown>;
+  database?: Record<string, unknown>;
+  registration?: {
+    status: number;
+    data: Record<string, unknown>;
+  };
+  error?: string;
+}
+
 export default function DebugRegistrationPage() {
-  const [testResults, setTestResults] = useState<any>({});
+  const [testResults, setTestResults] = useState<TestResults>({});
   const [loading, setLoading] = useState(false);
 
   const runTests = async () => {
     setLoading(true);
-    const results: any = {};
+    const results: TestResults = {};
 
     try {
       // Test 1: Check environment variables
@@ -46,8 +56,9 @@ export default function DebugRegistrationPage() {
       };
       console.log('Registration test result:', regData);
 
-    } catch (error: any) {
-      results.error = error.message;
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      results.error = errorMessage;
       console.error('Test error:', error);
     }
 

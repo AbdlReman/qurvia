@@ -2,13 +2,29 @@
 
 import React, { useState } from 'react';
 
+interface TestResults {
+  simple?: {
+    status: number;
+    data: Record<string, unknown>;
+  };
+  environment?: {
+    status: number;
+    data: Record<string, unknown>;
+  };
+  database?: {
+    status: number;
+    data: Record<string, unknown>;
+  };
+  error?: string;
+}
+
 export default function TestAuthPage() {
-  const [results, setResults] = useState<any>({});
+  const [results, setResults] = useState<TestResults>({});
   const [loading, setLoading] = useState(false);
 
   const runQuickTest = async () => {
     setLoading(true);
-    const testResults: any = {};
+    const testResults: TestResults = {};
 
     try {
       // Test 1: Simple API
@@ -31,8 +47,9 @@ export default function TestAuthPage() {
         testResults.database = { status: dbRes.status, data: dbData };
       }
 
-    } catch (error: any) {
-      testResults.error = error.message;
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      testResults.error = errorMessage;
     }
 
     setResults(testResults);

@@ -155,7 +155,7 @@ export default function SignUpPage() {
           router.push('/auth/signin');
         }, 3000);
       }
-    } catch (error) {
+    } catch {
       setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);

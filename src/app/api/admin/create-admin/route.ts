@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import User from '@/models/User';
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     await dbConnect();
 
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error creating admin user:', error);
     return NextResponse.json(
       { error: 'Internal server error' },

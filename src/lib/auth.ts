@@ -52,9 +52,10 @@ export const authOptions: NextAuthOptions = {
             image: user.profileImage,
             isEmailVerified: user.isEmailVerified,
           };
-        } catch (error: any) {
+        } catch (error: unknown) {
           console.error('Auth error:', error);
-          throw new Error(error.message || 'Authentication failed');
+          const errorMessage = error instanceof Error ? error.message : 'Authentication failed';
+          throw new Error(errorMessage);
         }
       }
     })

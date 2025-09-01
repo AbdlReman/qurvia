@@ -109,7 +109,7 @@ export default function ResetPasswordPage() {
           router.push('/auth/signin');
         }, 2000);
       }
-    } catch (error) {
+    } catch {
       setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);

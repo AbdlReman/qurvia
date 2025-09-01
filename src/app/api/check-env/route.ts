@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   const requiredEnvVars = {
     MONGODB_URI: process.env.MONGODB_URI,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   };
 
   const missingVars = Object.entries(requiredEnvVars)
-    .filter(([key, value]) => !value)
+    .filter(([, value]) => !value)
     .map(([key]) => key);
 
   const hasAllVars = missingVars.length === 0;
