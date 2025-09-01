@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const EventsSection: React.FC = () => {
   const events = [
@@ -77,7 +78,7 @@ const EventsSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <a href="/about" className="card-link">Read More →</a>
+                <Link href="/about" className="card-link">Read More →</Link>
               </div>
             </div>
           ))}

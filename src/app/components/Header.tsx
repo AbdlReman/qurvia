@@ -34,10 +34,10 @@ const Header: React.FC = () => {
             </div>
             
             <ul className="social-links">
-              <li><a href="/about"><span>📘</span></a></li>
-              <li><a href="/about"><span>🐦</span></a></li>
-              <li><a href="/about"><span>💼</span></a></li>
-              <li><a href="/about"><span>📷</span></a></li>
+              <li><Link href="/about"><span>📘</span></Link></li>
+              <li><Link href="/about"><span>🐦</span></Link></li>
+              <li><Link href="/about"><span>💼</span></Link></li>
+              <li><Link href="/about"><span>📷</span></Link></li>
             </ul>
           </div>
         </div>
@@ -62,8 +62,10 @@ const Header: React.FC = () => {
             
                          {/* Desktop Buttons */}
              <div className="search-section desktop-search">
-               <a href="/auth/signin" className="btn btn-outline">Login</a>
-               <a href="/auth/signup" className="btn btn-primary">Join Now</a>
+               <div className="auth-buttons">
+                 <Link href="/auth/signin" className="btn btn-outline">Login</Link>
+                 <Link href="/auth/signup" className="btn btn-primary">Join Now</Link>
+               </div>
              </div>
             
             {/* Mobile Menu Toggle - Right side on mobile */}
@@ -88,9 +90,9 @@ const Header: React.FC = () => {
             </ul>
             
                          <div className="mobile-search-section">
-               <div className="mobile-buttons">
-                 <a href="/auth/signin" className="btn btn-outline mobile-btn">Login</a>
-                 <a href="/auth/signup" className="btn btn-primary mobile-btn">Join Now</a>
+               <div className="auth-buttons">
+                 <Link href="/auth/signin" className="btn btn-outline mobile-btn">Login</Link>
+                 <Link href="/auth/signup" className="btn btn-primary mobile-btn">Join Now</Link>
                </div>
              </div>
           </div>

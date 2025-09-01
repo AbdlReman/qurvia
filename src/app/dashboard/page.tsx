@@ -18,7 +18,8 @@ export default function Dashboard() {
       return;
     }
 
-    if (session.user.role === 'admin') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((session.user as any)?.role === 'admin') {
       router.push('/admin/dashboard');
       return;
     }
@@ -38,7 +39,8 @@ export default function Dashboard() {
     return null;
   }
 
-  const isTeacher = session.user.role === 'teacher';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const isTeacher = (session.user as any)?.role === 'teacher';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
@@ -56,12 +58,15 @@ export default function Dashboard() {
               <div className="flex items-center space-x-2">
                 <div className="h-8 w-8 bg-gray-300 rounded-full flex items-center justify-center">
                   <span className="text-sm font-medium text-gray-700">
-                    {session.user.name?.charAt(0).toUpperCase()}
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                    {(session.user as any)?.name?.charAt(0).toUpperCase()}
                   </span>
                 </div>
                 <div className="text-sm">
-                  <p className="text-gray-900 font-medium">{session.user.name}</p>
-                  <p className="text-gray-500 capitalize">{session.user.role}</p>
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  <p className="text-gray-900 font-medium">{(session.user as any)?.name}</p>
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  <p className="text-gray-500 capitalize">{(session.user as any)?.role}</p>
                 </div>
               </div>
               <button
@@ -81,7 +86,8 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Welcome back, {session.user.name}! 👋
+                Welcome back, {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {(session.user as any)?.name}! 👋
               </h2>
               <p className="text-gray-600">
                 {isTeacher 
@@ -226,45 +232,29 @@ export default function Dashboard() {
                 <h3 className="text-lg font-semibold text-gray-900">Quick Actions</h3>
               </div>
               <div className="p-6">
-                <div className="space-y-3">
-                  <Link
-                    href="/courses"
-                    className="flex items-center p-3 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <svg className="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                    {isTeacher ? 'Manage Courses' : 'Browse Courses'}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <Link href="/courses" className="dashboard-card">
+                    <div className="text-3xl mb-4">📚</div>
+                    <h3 className="text-lg font-semibold mb-2">Browse Courses</h3>
+                    <p className="text-gray-600">Explore our comprehensive Islamic education programs</p>
                   </Link>
-
-                  <Link
-                    href="/profile"
-                    className="flex items-center p-3 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <svg className="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    View Profile
+                  
+                  <Link href="/profile" className="dashboard-card">
+                    <div className="text-3xl mb-4">👤</div>
+                    <h3 className="text-lg font-semibold mb-2">My Profile</h3>
+                    <p className="text-gray-600">Update your personal information and preferences</p>
                   </Link>
-
-                  <Link
-                    href="/contact"
-                    className="flex items-center p-3 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <svg className="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                    Get Support
+                  
+                  <Link href="/contact" className="dashboard-card">
+                    <div className="text-3xl mb-4">📞</div>
+                    <h3 className="text-lg font-semibold mb-2">Get Support</h3>
+                    <p className="text-gray-600">Contact our team for assistance and guidance</p>
                   </Link>
-
-                  <Link
-                    href="/"
-                    className="flex items-center p-3 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <svg className="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                    Back to Home
+                  
+                  <Link href="/" className="dashboard-card">
+                    <div className="text-3xl mb-4">🏠</div>
+                    <h3 className="text-lg font-semibold mb-2">Back to Home</h3>
+                    <p className="text-gray-600">Return to the main academy homepage</p>
                   </Link>
                 </div>
               </div>

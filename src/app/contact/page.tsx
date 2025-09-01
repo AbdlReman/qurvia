@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 
 export default function ContactPage() {
   return (
@@ -176,18 +177,18 @@ export default function ContactPage() {
                 <div className="mt-12">
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">Follow Us</h3>
                   <div className="flex gap-4">
-                    <a href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
+                    <Link href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
                       <span className="text-lg">📘</span>
-                    </a>
-                    <a href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
+                    </Link>
+                    <Link href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
                       <span className="text-lg">🐦</span>
-                    </a>
-                    <a href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
+                    </Link>
+                    <Link href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
                       <span className="text-lg">💼</span>
-                    </a>
-                    <a href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
+                    </Link>
+                    <Link href="/about" className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors">
                       <span className="text-lg">📷</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

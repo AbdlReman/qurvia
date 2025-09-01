@@ -30,7 +30,7 @@ function isRateLimited(ip: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
     
     // Rate limiting
     if (isRateLimited(ip)) {
@@ -164,7 +164,18 @@ export async function POST(request: NextRequest) {
 
     // Return user without sensitive data
     const userObject = user.toObject();
-    const { password: userPassword, emailVerificationToken: userToken, emailVerificationExpires: userExpires, ...userWithoutSensitiveData } = userObject;
+    const userWithoutSensitiveData = {
+      id: userObject._id,
+      name: userObject.name,
+      email: userObject.email,
+      role: userObject.role,
+      phone: userObject.phone,
+      address: userObject.address,
+      dateOfBirth: userObject.dateOfBirth,
+      isEmailVerified: userObject.isEmailVerified,
+      createdAt: userObject.createdAt,
+      updatedAt: userObject.updatedAt
+    };
 
     return NextResponse.json(
       { 
@@ -179,7 +190,7 @@ export async function POST(request: NextRequest) {
     
     // Handle mongoose validation errors
     if (error && typeof error === 'object' && 'name' in error && error.name === 'ValidationError') {
-      const validationError = error as { errors: Record<string, { message: string }> };
+      const validationError = error as unknown as { errors: Record<string, { message: string }> };
       const validationErrors = Object.values(validationError.errors).map((err) => err.message);
       return NextResponse.json(
         { error: validationErrors.join(', ') },

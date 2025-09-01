@@ -31,7 +31,8 @@ export default function Navbar() {
 					) : session ? (
 						<>
 							<Link 
-								href={session.user.role === 'admin' ? '/admin/dashboard' : '/dashboard'} 
+								// eslint-disable-next-line @typescript-eslint/no-explicit-any
+								href={(session.user as any)?.role === 'admin' ? '/admin/dashboard' : '/dashboard'} 
 								className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700 hover:bg-emerald-50"
 							>
 								Dashboard
@@ -67,7 +68,8 @@ export default function Navbar() {
 							) : session ? (
 								<>
 									<Link 
-										href={session.user.role === 'admin' ? '/admin/dashboard' : '/dashboard'} 
+										// eslint-disable-next-line @typescript-eslint/no-explicit-any
+										href={(session.user as any)?.role === 'admin' ? '/admin/dashboard' : '/dashboard'} 
 										className="text-[14px] px-4 py-2 rounded-md border border-emerald-600 text-emerald-700"
 										onClick={() => setOpen(false)}
 									>

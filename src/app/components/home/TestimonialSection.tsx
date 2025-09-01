@@ -3,6 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import testimonialsData from '../../data/testimonials.json';
 
+interface Testimonial {
+  name: string;
+  role: string;
+  review: string;
+  rating: number;
+  reviews: number;
+}
+
 const TestimonialSection: React.FC = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -69,7 +77,7 @@ const TestimonialSection: React.FC = () => {
         
         {/* Navigation dots */}
         <div className="flex justify-center gap-2 mt-8">
-          {testimonialsData.map((_: any, index: number) => (
+          {testimonialsData.map((_: Testimonial, index: number) => (
             <button
               key={index}
               onClick={() => goToTestimonial(index)}

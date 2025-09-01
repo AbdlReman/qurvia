@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const WelcomeSection: React.FC = () => {
   return (
@@ -47,18 +48,18 @@ const WelcomeSection: React.FC = () => {
             </div>
             
             <div className="welcome-cta-group">
-              <a href="/auth/signup" className="welcome-primary-btn">
+              <Link href="/auth/signup" className="welcome-primary-btn">
                 Enroll Now
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
-              <a href="/about" className="welcome-secondary-btn">
+              </Link>
+              <Link href="/about" className="welcome-secondary-btn">
                 Virtual Tour
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 5v14l11-7z" fill="currentColor"/>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

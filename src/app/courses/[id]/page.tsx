@@ -4,8 +4,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import coursesData from '../../data/courses.json';
 
-export default function CourseDetailsPage({ params }: { params: { id: string } }) {
-  const courseId = parseInt(params.id);
+export default async function CourseDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const courseId = parseInt(id);
   
   // Find the course from the JSON data
   const course = coursesData.courses.find(c => c.id === courseId);

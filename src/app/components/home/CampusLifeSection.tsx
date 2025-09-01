@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const CampusLifeSection: React.FC = () => {
   const features = [
@@ -66,9 +67,12 @@ const CampusLifeSection: React.FC = () => {
         
         {/* Bottom CTA */}
         <div className="campus-life-cta">
-          <a href="/about" className="campus-life-cta-button">
-            Explore Academy Life →
-          </a>
+          <Link href="/about" className="campus-life-cta-button">
+            Explore Campus Life
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

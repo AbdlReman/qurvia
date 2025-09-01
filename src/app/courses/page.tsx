@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 import coursesData from '../data/courses.json';
 
 export default function CoursesPage() {
@@ -145,14 +146,14 @@ export default function CoursesPage() {
                       <span className="font-bold text-emerald-600 text-base sm:text-lg">{course.price}</span>
                     </div>
                     
-                    <a href={`/courses/${course.id}`} className="card-link text-sm sm:text-base">View Details →</a>
+                    <Link href={`/courses/${course.id}`} className="card-link text-sm sm:text-base">View Details →</Link>
                   </div>
                 </div>
               ))}
             </div>
             
             <div className="text-center">
-              <a href="/courses" className="btn btn-primary">View All Courses →</a>
+              <Link href="/courses" className="btn btn-primary">View All Courses →</Link>
             </div>
           </div>
         </section>
@@ -198,12 +199,12 @@ export default function CoursesPage() {
               Join our community of learners and start your journey towards Islamic knowledge and spiritual growth
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/courses" className="bg-white text-emerald-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <Link href="/courses" className="bg-white text-emerald-600 py-3 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Browse All Courses
-              </a>
-              <a href="/contact" className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors">
+              </Link>
+              <Link href="/contact" className="border-2 border-white text-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors">
                 Contact Advisor
-              </a>
+              </Link>
             </div>
           </div>
         </section>

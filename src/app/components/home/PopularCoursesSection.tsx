@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import coursesData from '../../data/courses.json';
 
 const PopularCoursesSection: React.FC = () => {
@@ -43,14 +44,14 @@ const PopularCoursesSection: React.FC = () => {
                       <span className="font-bold text-emerald-600 text-base sm:text-lg">{course.price}</span>
                     </div>
                     
-                    <a href={`/courses/${course.id}`} className="card-link text-sm sm:text-base">View Details →</a>
+                    <Link href={`/courses/${course.id}`} className="card-link text-sm sm:text-base">View Details →</Link>
                   </div>
                 </div>
               ))}
             </div>
         
         <div className="text-center">
-          <a href="/courses" className="btn btn-primary">View All Courses →</a>
+          <Link href="/courses" className="btn btn-primary">View All Courses →</Link>
         </div>
       </div>
     </section>

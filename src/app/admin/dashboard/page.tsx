@@ -29,7 +29,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (status === 'loading') return;
 
-    if (!session || session.user.role !== 'admin') {
+    if (!session || !session.user || (session.user as { role: string }).role !== 'admin') {
       router.push('/auth/signin');
       return;
     }
@@ -104,7 +104,7 @@ export default function AdminDashboard() {
     );
   }
 
-  if (!session || session.user.role !== 'admin') {
+  if (!session || !session.user || (session.user as { role: string }).role !== 'admin') {
     return null;
   }
 

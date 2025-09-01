@@ -34,7 +34,8 @@ export default function SignInPage() {
         setError(result.error);
       } else {
         const session = await getSession();
-        if (session?.user?.role === 'admin') {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if ((session?.user as any)?.role === 'admin') {
           router.push('/admin/dashboard');
         } else {
           router.push('/dashboard');

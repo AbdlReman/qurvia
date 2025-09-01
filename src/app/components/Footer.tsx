@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -23,24 +24,24 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="footer-title">About Us</h3>
             <ul className="footer-links">
-              <li><a href="/about">About Academy</a></li>
-              <li><a href="/courses">Quran Courses</a></li>
-              <li><a href="/courses">Islamic Studies</a></li>
-              <li><a href="/about">Our Teachers</a></li>
-              <li><a href="/contact">Join as Teacher</a></li>
-              <li><a href="/contact">Contact Us</a></li>
+              <li><Link href="/about">About Academy</Link></li>
+              <li><Link href="/courses">Quran Courses</Link></li>
+              <li><Link href="/courses">Islamic Studies</Link></li>
+              <li><Link href="/about">Our Teachers</Link></li>
+              <li><Link href="/contact">Join as Teacher</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="footer-title">Useful Links</h3>
             <ul className="footer-links">
-              <li><a href="/courses">Quran Library</a></li>
-              <li><a href="/courses">Islamic Resources</a></li>
-              <li><a href="/about">Partners</a></li>
-              <li><a href="/about">News & Updates</a></li>
-              <li><a href="/contact">FAQ</a></li>
-              <li><a href="/courses">Learning Guides</a></li>
+              <li><Link href="/courses">Quran Library</Link></li>
+              <li><Link href="/courses">Islamic Resources</Link></li>
+              <li><Link href="/about">Partners</Link></li>
+              <li><Link href="/about">News & Updates</Link></li>
+              <li><Link href="/contact">FAQ</Link></li>
+              <li><Link href="/courses">Learning Guides</Link></li>
             </ul>
           </div>
           
@@ -61,14 +62,14 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="footer-bottom">
-          <div>© {new Date().getFullYear()} <a href="/" className="text-white">Qurvia Academy.</a> All Rights Reserved</div>
+          <div>© {new Date().getFullYear()} <Link href="/" className="text-white">Qurvia Academy.</Link> All Rights Reserved</div>
           <div className="flex items-center gap-4">
             <span className="text-gray-300">Follow us</span>
             <ul className="social-links">
-              <li><a href="/about"><span>📘</span></a></li>
-              <li><a href="/about"><span>🐦</span></a></li>
-              <li><a href="/about"><span>💼</span></a></li>
-              <li><a href="/about"><span>📷</span></a></li>
+              <li><Link href="/about"><span>📘</span></Link></li>
+              <li><Link href="/about"><span>🐦</span></Link></li>
+              <li><Link href="/about"><span>💼</span></Link></li>
+              <li><Link href="/about"><span>📷</span></Link></li>
             </ul>
           </div>
         </div>

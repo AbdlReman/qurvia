@@ -142,7 +142,7 @@ userSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, salt);
     next();
   } catch (error: unknown) {
-    next(error);
+    next(error as Error);
   }
 });
 
@@ -167,7 +167,8 @@ userSchema.methods.incrementLoginAttempts = async function(): Promise<void> {
     return;
   }
   
-  const updates = { $inc: { loginAttempts: 1 } };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const updates: any = { $inc: { loginAttempts: 1 } };
   
   // Lock account after 5 failed attempts for 2 hours
   if (this.loginAttempts + 1 >= 5 && !this.isLocked()) {
@@ -193,7 +194,8 @@ userSchema.virtual('locked').get(function() {
 // Ensure virtual fields are serialized
 userSchema.set('toJSON', {
   virtuals: true,
-  transform: function(doc, ret) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  transform: function(doc, ret: any) {
     delete ret.password;
     delete ret.emailVerificationToken;
     delete ret.emailVerificationExpires;
