@@ -53,7 +53,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="hero relative w-full min-h-screen md:h-screen overflow-hidden">
+    <section className="hero relative w-full h-[100svh] md:h-screen overflow-hidden">
       {/* Slider Images */}
       {slides.map((slide, index) => (
         <div
@@ -73,7 +73,7 @@ const HeroSection: React.FC = () => {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 container h-full flex items-center px-4 md:px-6 lg:px-8 py-20 md:py-0">
+      <div className="relative z-10 container h-full flex items-center px-4 md:px-6 lg:px-8">
         <div className="hero-content w-full">
           <div className="hero-left max-w-full md:max-w-2xl">
             <span className="hero-tag text-xs md:text-sm lg:text-base mb-2 md:mb-3 block">
