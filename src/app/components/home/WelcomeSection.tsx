@@ -38,7 +38,7 @@ const WelcomeSection: React.FC = () => {
                 <span>Quran Memorization</span>
               </div>
               <div className="welcome-feature">
-                <div className="welcome-feature-icon">🎯</div>
+                <div className="welcome-feature-icon">📖</div>
                 <span>Tajweed Mastery</span>
               </div>
               <div className="welcome-feature">

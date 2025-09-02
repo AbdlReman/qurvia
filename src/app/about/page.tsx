@@ -122,7 +122,7 @@ export default function AboutPage() {
                 <span className="text-sm sm:text-base">Quran Memorization</span>
               </div>
               <div className="welcome-feature">
-                <div className="welcome-feature-icon text-lg sm:text-xl">🎯</div>
+                <div className="welcome-feature-icon text-lg sm:text-xl">📖</div>
                 <span className="text-sm sm:text-base">Tajweed Mastery</span>
               </div>
               <div className="welcome-feature">
@@ -150,7 +150,35 @@ export default function AboutPage() {
       </div>
     </section>
 
-      
+      {/* Mission & Vision */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div>
+              <div className="text-secondary-600 font-medium mb-2 text-sm sm:text-base">Our Mission</div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-4">Nurturing Hearts with Quran and Sunnah</h2>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                At Qurvia, our mission is to cultivate love for the Book of Allah and the Sunnah of His Messenger ﷺ by providing structured, accessible and authentic education for all ages. We focus on correct recitation with Tajweed, memorization with deep understanding, and practical implementation of Islamic manners and values.
+              </p>
+              <ul className="mt-6 space-y-3 text-gray-700">
+                <li className="flex items-start gap-3"><span className="text-secondary-600 mt-1">✔</span> Tajweed-based recitation from beginner to advanced</li>
+                <li className="flex items-start gap-3"><span className="text-secondary-600 mt-1">✔</span> Hifz programs with personalized coaching and review plans</li>
+                <li className="flex items-start gap-3"><span className="text-secondary-600 mt-1">✔</span> Arabic, Seerah, Aqeedah and Fiqh fundamentals for a balanced growth</li>
+              </ul>
+            </div>
+            <div>
+              <div className="text-secondary-600 font-medium mb-2 text-sm sm:text-base">Our Vision</div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 leading-tight mb-4">Lighting Homes with the Guidance of the Quran</h3>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                We envision a global community of students who recite beautifully, understand deeply, and live gracefully by the Quran. Through modern tools and compassionate mentorship, we aim to make Quranic education inspiring, consistent, and life-changing.
+              </p>
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
 
         {/* Meet Our Instructors */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white">
@@ -183,7 +211,7 @@ export default function AboutPage() {
        
 
         {/* Statistics Section */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        {/* <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {stats.map((stat, index) => (
@@ -195,28 +223,36 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Call to Action */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-secondary-600 to-secondary-700 relative overflow-hidden">
+        <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden" style={{ background: 'var(--primary-color)' }}>
           {/* Background decorative elements */}
           <div className="absolute inset-0">
             <div className="absolute top-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-full"></div>
             <div className="absolute bottom-20 left-10 w-12 h-12 sm:w-16 sm:h-16 bg-white/5 rounded-full"></div>
-            <div className="absolute top-1/2 left-1/3 w-8 h-8 sm:w-12 sm:h-12 bg-white/8 rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-white/8 rounded-full"></div>
           </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
-              <div className="text-white text-center lg:text-left">
-                <div className="text-white/80 mb-2 text-sm sm:text-base">Free Online Course</div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-                  Ready to dive in? Start your free Course today.
-                </h2>
+
+          <div className="container mx-auto px-4 relative z-10 min-h-[300px] flex items-center justify-center">
+            <div className="max-w-3xl w-full text-center">
+              <div className="text-white/80 mb-3 text-sm sm:text-base">Online Course</div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-white mb-6">
+                Ready to dive in? Start your free Course Trail today.
+              </h2>
+              <div className="flex items-center justify-center">
+                <Link
+                  href="/courses"
+                  className="rounded-lg font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all"
+                  style={{
+                    background: 'var(--secondary-color)',
+                    color: '#ffffff',
+                    padding: '0.875rem 1.75rem'
+                  }}
+                >
+                  Explore Courses
+                </Link>
               </div>
-              <Link href="/contact" className="bg-white text-secondary-600 py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base">
-                Go To FAQ →
-              </Link>
             </div>
           </div>
         </section>
