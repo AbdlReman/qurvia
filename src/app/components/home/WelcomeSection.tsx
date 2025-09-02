@@ -23,7 +23,7 @@ const WelcomeSection: React.FC = () => {
           <div className="welcome-content">
             <h2 className="welcome-title">
               <span className="welcome-title-part">Welcome to Qurvia</span><br />
-              <span className="welcome-title-main">Quran International Academy</span>
+              <span className="welcome-title-main" style={{ color: 'var(--secondary-color)' }}>Quran International Academy</span>
             </h2>
             
             <p className="welcome-text">

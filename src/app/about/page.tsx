@@ -107,7 +107,7 @@ export default function AboutPage() {
           <div className="welcome-content">
             <h2 className="welcome-title text-2xl sm:text-3xl lg:text-4xl">
               <span className="welcome-title-part">Welcome to Qurvia</span><br />
-              <span className="welcome-title-main">Quran International Academy</span>
+              <span className="welcome-title-main" style={{ color: 'var(--secondary-color)' }}>Quran International Academy</span>
             </h2>
             
             <p className="welcome-text text-sm sm:text-base lg:text-lg">
