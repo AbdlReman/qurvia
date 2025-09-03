@@ -17,6 +17,7 @@ const Footer: React.FC = () => {
             </p>
             <ul className="footer-links">
               <li><a href="tel:+923165677624">+92 316 5677624</a></li>
+              <li><a href="tel:+923709177700">+923709177700</a></li>
               <li><a href="mailto:info@qurviaacademy.com">info@qurviaacademy.com</a></li>
             </ul>
           </div>

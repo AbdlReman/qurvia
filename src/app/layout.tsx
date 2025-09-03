@@ -20,6 +20,22 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           {children}
+          {/* Floating WhatsApp Button */}
+          <a
+            href="https://wa.me/923709177700"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="fixed right-4 bottom-4 z-50 inline-flex items-center justify-center hover:opacity-90"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+              width="56"
+              height="56"
+              className="block"
+            />
+          </a>
         </Providers>
       </body>
     </html>

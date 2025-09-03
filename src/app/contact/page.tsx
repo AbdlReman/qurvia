@@ -136,6 +136,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Phone</h3>
                       <p className="text-gray-600">+92 316 5677624</p>
+                      <p className="text-gray-600">+923709177700</p>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">Email</h3>
                       <p className="text-gray-600">info@qurviaacademy.com</p>
                     </div>
