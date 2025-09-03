@@ -139,9 +139,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate email verification token
-    const emailVerificationToken = crypto.randomBytes(32).toString('hex');
-    const emailVerificationExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+    // For now: auto-verify email and skip token generation
 
     // Create new user
     const user = new User({
@@ -152,15 +150,12 @@ export async function POST(request: NextRequest) {
       phone: phone?.trim(),
       address: address?.trim(),
       dateOfBirth: dateOfBirth ? new Date(dateOfBirth) : undefined,
-      emailVerificationToken,
-      emailVerificationExpires,
+      isEmailVerified: true,
     });
 
     await user.save();
 
-    // TODO: Send verification email here
-    // In a real application, you would integrate with an email service like SendGrid, AWS SES, etc.
-    console.log('Email verification token:', emailVerificationToken);
+    // Skipping email verification email for now per requirements
 
     // Return user without sensitive data
     const userObject = user.toObject();
@@ -179,7 +174,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { 
-        message: 'User registered successfully. Please check your email to verify your account.',
+        message: 'User registered successfully.',
         user: userWithoutSensitiveData 
       },
       { status: 201 }

@@ -12,6 +12,7 @@ interface User {
   role: 'student' | 'teacher' | 'admin';
   isActive: boolean;
   createdAt: string;
+  enrollments?: Array<{ courseId: number; courseTitle: string; enrolledAt: string }>;
 }
 
 export default function AdminDashboard() {
@@ -206,6 +207,9 @@ export default function AdminDashboard() {
                     User
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                    Enrollments
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                     Role
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
@@ -234,6 +238,20 @@ export default function AdminDashboard() {
                           <div className="text-sm text-gray-400">{user.email}</div>
                         </div>
                       </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                      {(user.enrollments?.length || 0) > 0 ? (
+                        <div className="space-y-1">
+                          {user.enrollments?.slice(0, 2).map((e) => (
+                            <div key={`${user._id}-${e.courseId}`} className="truncate">• {e.courseTitle}</div>
+                          ))}
+                          {(user.enrollments?.length || 0) > 2 && (
+                            <div className="text-gray-400">+{(user.enrollments?.length || 0) - 2} more</div>
+                          )}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400">None</span>
+                      )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <select

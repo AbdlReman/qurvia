@@ -19,6 +19,12 @@ export interface IUser extends mongoose.Document {
   lastLogin?: Date;
   loginAttempts: number;
   lockUntil?: Date;
+  enrollments?: Array<{
+    courseId: number;
+    courseTitle: string;
+    enrolledAt: Date;
+    notes?: string;
+  }>;
   createdAt: Date;
   updatedAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
@@ -124,6 +130,17 @@ const userSchema = new mongoose.Schema<IUser>({
   lockUntil: {
     type: Date,
   },
+  enrollments: [
+    new mongoose.Schema(
+      {
+        courseId: { type: Number, required: true },
+        courseTitle: { type: String, required: true },
+        enrolledAt: { type: Date, default: Date.now },
+        notes: { type: String, default: '' },
+      },
+      { _id: false }
+    )
+  ],
 }, {
   timestamps: true,
 });

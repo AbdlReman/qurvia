@@ -150,7 +150,7 @@ export default function SignUpPage() {
       if (!response.ok) {
         setError(data.error || 'Registration failed');
       } else {
-        setSuccess('Registration successful! Please check your email to verify your account.');
+        setSuccess('Registration successful! You can sign in now.');
         setTimeout(() => {
           router.push('/auth/signin');
         }, 3000);
