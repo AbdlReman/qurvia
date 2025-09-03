@@ -223,5 +223,10 @@ userSchema.set('toJSON', {
     return ret;
   }
 });
+// Ensure model uses latest schema during dev hot-reload
+// This avoids stale schemas that omit newly added fields like enrollments
+if (mongoose.models.User) {
+  delete mongoose.models.User;
+}
 
-export default mongoose.models.User || mongoose.model<IUser>('User', userSchema);
+export default mongoose.model<IUser>('User', userSchema);

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import coursesData from '../../data/courses.json';
+import EnrollButton from '@/components/EnrollButton';
 
 export default async function CourseDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -160,9 +161,7 @@ export default async function CourseDetailsPage({ params }: { params: Promise<{ 
                        <div className="text-xs sm:text-sm text-gray-500 line-through">{course.originalPrice}</div>
                      </div>
                      
-                     <button className="w-full bg-emerald-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-emerald-700 transition-colors">
-                       Enroll Now
-                     </button>
+                     <EnrollButton courseId={course.id} />
                    </div>
 
                    

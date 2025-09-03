@@ -26,7 +26,7 @@ export default function Dashboard() {
     }
     const load = async () => {
       try {
-        const res = await fetch('/api/users/enroll');
+        const res = await fetch('/api/users/enroll', { cache: 'no-store' });
         if (res.ok) {
           const data = await res.json();
           setEnrollments(data.enrollments || []);
@@ -115,7 +115,20 @@ export default function Dashboard() {
                     <div key={e.courseId} className="bg-gray-900 border border-gray-700 rounded-md p-4">
                       <h3 className="font-semibold mb-1">{e.courseTitle}</h3>
                       <p className="text-xs text-gray-400">Enrolled on {new Date(e.enrolledAt).toLocaleDateString()}</p>
-                      <div className="mt-3 text-sm text-gray-300">Classes are live. Admin will contact you to schedule Zoom sessions.</div>
+                      <div className="mt-3 text-sm text-gray-300">
+                        {(() => {
+                          const enrolledDate = new Date(e.enrolledAt);
+                          const now = new Date();
+                          const oneDayInMs = 24 * 60 * 60 * 1000;
+                          const isWithinOneDay = (now.getTime() - enrolledDate.getTime()) < oneDayInMs;
+                          
+                          return isWithinOneDay ? (
+                            <span className="text-emerald-400">Team will contact you to schedule live sessions.</span>
+                          ) : (
+                            <span className="text-gray-500">Enrollment confirmed</span>
+                          );
+                        })()}
+                      </div>
                     </div>
                   ))}
                 </div>

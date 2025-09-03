@@ -9,9 +9,11 @@ interface UpdateData {
   isActive?: boolean;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -25,7 +27,7 @@ export async function PATCH(
       );
     }
 
-    const { id } = await params;
+    const { id } = params;
     const { role, isActive } = await request.json();
 
     await dbConnect();

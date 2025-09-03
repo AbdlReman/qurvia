@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -63,8 +65,14 @@ const Header: React.FC = () => {
              {/* Desktop Buttons */}
              <div className="search-section desktop-search">
                <div className="auth-buttons flex gap-3">
-                 <Link href="/auth/signin" className="btn btn-outline">Login</Link>
-                 <Link href="/auth/signup" className="btn btn-primary">Join Now</Link>
+                {session?.user ? (
+                  <Link href={(session.user as { role?: string })?.role === 'admin' ? '/admin/dashboard' : '/dashboard'} className="btn btn-primary">Dashboard</Link>
+                ) : (
+                  <>
+                    <Link href="/auth/signin" className="btn btn-outline">Login</Link>
+                    <Link href="/auth/signup" className="btn btn-primary">Join Now</Link>
+                  </>
+                )}
                </div>
              </div>
              
@@ -91,8 +99,14 @@ const Header: React.FC = () => {
             
                          <div className="mobile-search-section">
                <div className="auth-buttons flex gap-3">
-                 <Link href="/auth/signin" className="btn btn-outline mobile-btn">Login</Link>
-                 <Link href="/auth/signup" className="btn btn-primary mobile-btn">Join Now</Link>
+                {session?.user ? (
+                  <Link href={(session.user as { role?: string })?.role === 'admin' ? '/admin/dashboard' : '/dashboard'} className="btn btn-primary mobile-btn" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
+                ) : (
+                  <>
+                    <Link href="/auth/signin" className="btn btn-outline mobile-btn" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                    <Link href="/auth/signup" className="btn btn-primary mobile-btn" onClick={() => setIsMenuOpen(false)}>Join Now</Link>
+                  </>
+                )}
                </div>
              </div>
           </div>

@@ -67,7 +67,7 @@ export async function GET() {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ enrollments: user.enrollments || [] });
+    return NextResponse.json({ enrollments: user.enrollments || [] }, { status: 200, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate' } });
   } catch (error) {
     console.error('Get enrollments error', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

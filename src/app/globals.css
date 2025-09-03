@@ -1755,3 +1755,8 @@ header {
     display: none;
   }
 }
+
+/* Add this class for the enhanced admin dashboard */
+.bg-gray-750 {
+  background-color: #374151;
+}
