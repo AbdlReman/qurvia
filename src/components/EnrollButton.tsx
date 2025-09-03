@@ -74,22 +74,30 @@ export default function EnrollButton({ courseId, className = '', variant = 'prim
 
   const baseClasses =
     variant === 'primary'
-      ? 'w-full bg-emerald-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-emerald-700 transition-colors'
-      : 'inline-flex items-center justify-center bg-emerald-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-emerald-700 transition-colors';
+      ? 'btn btn-primary w-full text-center'
+      : 'btn btn-primary';
 
   return (
     <div className={className}>
-      <button onClick={handleEnroll} disabled={loading || enrolled} className={`${baseClasses} ${loading || enrolled ? 'opacity-70 cursor-not-allowed' : ''}`}>
-        {enrolled ? 'Enrolled' : loading ? 'Enrolling…' : 'Enroll Now'}
-      </button>
-      {message && (
-        <p className="mt-2 text-sm text-emerald-700">{message}</p>
-      )}
-      {!message && enrolled && (
-        <p className="mt-2 text-sm text-emerald-700">Team will contact you to schedule live sessions.</p>
-      )}
-    </div>
-  );
+      <button 
+        onClick={handleEnroll} 
+        disabled={loading || enrolled} 
+        className={`${baseClasses} ${
+          loading || enrolled 
+            ? 'opacity-70 cursor-not-allowed' 
+            : ''
+        }`}
+      >
+        {enrolled ? 'Enrolled' : loading ? 'Enrolling...' : 'Enroll Now'}
+       </button>
+       {message && (
+         <p className="mt-2 text-sm text-emerald-600">{message}</p>
+       )}
+       {!message && enrolled && (
+         <p className="mt-2 text-sm text-emerald-600">Team will contact you to schedule live sessions.</p>
+       )}
+     </div>
+   );
 }
 
 
