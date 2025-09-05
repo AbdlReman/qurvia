@@ -1,4 +1,5 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
+import mongoose from 'mongoose';
 import dbConnect from './mongodb';
 import User from '../models/User';
 
@@ -45,7 +46,7 @@ export const authOptions: any = {
           await user.resetLoginAttempts();
 
           return {
-            id: user._id.toString(),
+            id: (user._id as mongoose.Types.ObjectId).toString(),
             email: user.email,
             name: user.name,
             role: user.role,

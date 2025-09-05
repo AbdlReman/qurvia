@@ -27,12 +27,6 @@ export default function AdminDashboard() {
   const [sortBy, setSortBy] = useState('name');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
-  const [stats, setStats] = useState({
-    totalUsers: 0,
-    students: 0,
-    teachers: 0,
-    admins: 0,
-  });
 
   useEffect(() => {
     if (status === 'loading') return;
@@ -51,15 +45,6 @@ export default function AdminDashboard() {
       if (response.ok) {
         const data = await response.json();
         setUsers(data.users);
-        
-        // Calculate stats
-        const stats = {
-          totalUsers: data.users.length,
-          students: data.users.filter((u: User) => String(u.role).toLowerCase().trim() === 'student').length,
-          teachers: data.users.filter((u: User) => String(u.role).toLowerCase().trim() === 'teacher').length,
-          admins: data.users.filter((u: User) => String(u.role).toLowerCase().trim() === 'admin').length,
-        };
-        setStats(stats);
       }
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -266,7 +251,7 @@ export default function AdminDashboard() {
                       </tr>
                     </thead>
                     <tbody className="bg-gray-800 divide-y divide-gray-700/20">
-                      {paginatedUsers.map((user, index) => (
+                      {paginatedUsers.map((user) => (
                         <tr key={user._id} className="hover:bg-gray-700/20 transition-all duration-200 group">
                           <td className="px-8 py-8 whitespace-nowrap">
                             <div className="flex items-center space-x-4">

@@ -37,28 +37,6 @@ export default function AboutPage() {
     }
   ];
 
-  const stats = [
-    {
-      icon: "🌍",
-      number: "26k",
-      label: "FOREIGN FOLLOWERS"
-    },
-    {
-      icon: "📖",
-      number: "9k",
-      label: "CLASSES COMPLETE"
-    },
-    {
-      icon: "👥",
-      number: "191k",
-      label: "STUDENTS ENROLLED"
-    },
-    {
-      icon: "🏆",
-      number: "50k",
-      label: "CERTIFIED TEACHERS"
-    }
-  ];
 
   return (
     <>
