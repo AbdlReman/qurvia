@@ -41,7 +41,6 @@ const PopularCoursesSection: React.FC = () => {
                         </svg>
                         <span className="text-sm">{course.students} Students</span>
                       </div>
-                      <span className="font-bold text-emerald-600 text-base sm:text-lg">{course.price}</span>
                     </div>
                     
                     <Link href={`/courses/${course.id}`} className="card-link text-sm sm:text-base">View Details →</Link>
