@@ -1,9 +1,76 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+      
+      // Show success message
+      setShowSuccessMessage(true);
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Hide success message after 3 seconds
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <>
       <Header />
@@ -29,7 +96,38 @@ export default function ContactPage() {
               {/* Contact Form */}
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Send Us a Message</h2>
-                <form className="space-y-6">
+                
+                {/* Success Message */}
+                {showSuccessMessage && (
+                  <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg flex items-center gap-3">
+                    <div className="text-green-500">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold">Message sent successfully!</p>
+                      <p className="text-sm">Thank you for contacting us. We'll get back to you soon.</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {errorMessage && (
+                  <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex items-center gap-3">
+                    <div className="text-red-500">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold">Error sending message</p>
+                      <p className="text-sm">{errorMessage}</p>
+                    </div>
+                  </div>
+                )}
+                
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="firstName" className="form-label">
@@ -39,8 +137,11 @@ export default function ContactPage() {
                         type="text"
                         id="firstName"
                         name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         className="form-input"
                         placeholder="Enter your first name"
+                        required
                       />
                     </div>
                     <div className="form-group">
@@ -51,8 +152,11 @@ export default function ContactPage() {
                         type="text"
                         id="lastName"
                         name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                         className="form-input"
                         placeholder="Enter your last name"
+                        required
                       />
                     </div>
                   </div>
@@ -65,8 +169,11 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="form-input"
                       placeholder="Enter your email address"
+                      required
                     />
                   </div>
                   
@@ -78,6 +185,8 @@ export default function ContactPage() {
                       type="tel"
                       id="phone"
                       name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       className="form-input"
                       placeholder="Enter your phone number"
                     />
@@ -90,7 +199,10 @@ export default function ContactPage() {
                     <select
                       id="subject"
                       name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
                       className="form-select"
+                      required
                     >
                       <option value="">Select a subject</option>
                       <option value="general">General Inquiry</option>
@@ -110,17 +222,31 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={6}
                       className="form-textarea"
                       placeholder="Enter your message here..."
+                      required
                     ></textarea>
                   </div>
                   
                   <button
                     type="submit"
                     className="form-button"
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : (
+                      'Send Message'
+                    )}
                   </button>
                 </form>
               </div>
